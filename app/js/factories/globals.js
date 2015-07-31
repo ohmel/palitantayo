@@ -6,14 +6,14 @@
 ptApp.factory('Globals', function($location) {
     //root folder Url
     var host = $location.host()+"/";
-
+    var rootUrl;
     if(host === 'localhost/'){
         host = $location.host()+"/palitantayo/"
     }else{
         //take this off when applying to production
         host = $location.host()+"/palitantayo/"
     }
-    var rootUrl = 'http://'+host;
+    rootUrl = 'http://'+host;
   return {
       rootUrl : rootUrl
   };

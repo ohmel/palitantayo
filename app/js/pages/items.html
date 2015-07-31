@@ -1,0 +1,109 @@
+<link rel="stylesheet" href="app/css/items.css" />
+
+
+<div class="container-fluid">
+    <div class="row" style="background: #BED735">
+        <div class="col-md-12 col-sm-12">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" style="width: 400px" placeholder="What are you looking for?">
+                </div>
+                <button type="submit" class="btn btn-success">Search here</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="page-header" style="padding-left: 20px; margin-bottom: 0px; padding-bottom: 0px; margin-top: 0px">
+            <h1 style="color: #BED735">Featured <span style="color: #56BEC1;">Today!</span></h1>
+        </div>
+        <div class="col-md-8 col-sm-8 slider">
+            <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage img-responsive"
+                 ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
+                 ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
+            <nav class="nav2">
+                <div class="wrapper">
+                    <ul class="dots">
+                        <li class="dot" ng-repeat="slide in slides">
+                            <a ng-class="{'active':isCurrentSlideIndex($index)}"
+                               ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div style="padding-top: 20px">
+                <img src="{{globals.rootUrl}}app/images/logo.jpg" class="img-responsive img-circle" width="60" style="display: inline">
+                <b style="font-size: 18px">Ohmel Paguirigan</b>
+                <p style="border-top: 1px solid #E6E6E6; padding-top: 10px">
+                    Description Goes Here!
+                    <br/><br/>
+                    Specification Goes Here!
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="page-header" style="padding-left: 20px; margin-bottom: 0px; padding-bottom: 0px; margin-top: 0px">
+            <h1 style="color: #BED735">Browse <span style="color: #56BEC1;">Here!</span></h1>
+        </div>
+        <br/>
+        <div class="col-xs-4">
+            <a href="#" class="thumbnail">
+                <img src="http://placehold.it/400x200" alt="..." />
+            </a>
+        </div>
+        <div class="col-xs-4">
+            <a href="#" class="thumbnail">
+                <img src="http://placehold.it/400x200" alt="..." />
+            </a>
+        </div>
+        <div class="col-xs-4">
+            <a href="#" class="thumbnail">
+                <img src="http://placehold.it/400x200" alt="..." />
+            </a>
+        </div>
+        <div class="col-xs-3">
+            <a href="#" class="thumbnail">
+                <img src="http://placehold.it/300x150" alt="..." />
+            </a>
+        </div>
+        <div class="col-xs-3">
+            <a href="#" class="thumbnail">
+                <img src="http://placehold.it/300x150" alt="..." />
+            </a>
+        </div>
+        <div class="col-xs-3">
+            <a href="#" class="thumbnail">
+                <img src="http://placehold.it/300x150" alt="..." />
+            </a>
+        </div>
+        <div class="col-xs-3">
+            <a href="#" class="thumbnail">
+                <img src="http://placehold.it/300x150" alt="..." />
+            </a>
+        </div>
+    </div>
+    <nav>
+        <ul class="pagination" style="float: right;">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

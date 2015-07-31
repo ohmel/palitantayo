@@ -12,9 +12,9 @@ ptApp.config(function($routeProvider) {
         })
 
         // route for the about page
-        .when('/about', {
-            templateUrl : 'pages/about.html',
-            controller  : 'aboutController'
+        .when('/items', {
+            templateUrl : 'app/js/pages/items.html',
+            controller  : 'itemsController'
         })
 
         // route for the contact page
