@@ -6,6 +6,7 @@
     <!-- SCROLLS -->
     <!-- load bootstrap and fontawesome via local -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/flat-ui/dist/css/flat-ui.css" />
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
 
     <!-- SPELLS -->
@@ -21,11 +22,26 @@
     <!--Controllers-->
     <script src="app/js/controllers/mainController.js"></script>
     <script src="app/js/controllers/itemsController.js"></script>
+    <script src="app/js/controllers/loginController.js"></script>
 
     <!--Services-->
     <!--Factories-->
     <script src="app/js/factories/globals.js"></script>
 
+    <style>
+        /*header{*/
+            /*background: white !important;*/
+        /*}*/
+        /*.nav{*/
+            /*background: white !important;*/
+        /*}*/
+        .nav li a{
+            font-family: Arial !important;
+            font-size: 15px !important;
+            color: #777 !important;
+            font-weight: 100 !important;
+        }
+    </style>
 
 
 </head>
@@ -34,8 +50,8 @@
 <!-- HEADER AND NAVBAR -->
 <div style="z-index: 1000 !important; margin-bottom: 0px !important;">
     <header>
-        <nav class="navbar navbar-default" style="margin-bottom: 0px">
-            <div class="container" style="z-index: 1000 !important;">
+        <nav class="navbar navbar-default" style="margin-bottom: 0px; background: white !important;">
+            <div class="container" style="z-index: 1000 !important; background: white !important;">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/" style="padding-top: 3px;">
                         <!--<h4 style="color: #BBD631; margin-top: 0px"> Palitan <span style="color: #5CBBBF;">Tayo!</span></h4>-->
@@ -46,7 +62,7 @@
                     <li><a href="#/"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href="#items"><i class="fa fa-reorder"></i> Items</a></li>
                     <li><a href="#contact"><i class="fa fa-comment"></i> Forums</a></li>
-                    <li><a href="#contact"><i class="fa fa-shield"></i> Login</a></li>
+                    <li><a href="#login"><i class="fa fa-shield"></i> Login</a></li>
                 </ul>
             </div>
         </nav>
@@ -66,21 +82,21 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4 col-sm-4">
-                <h3>Column 1</h3>
+                <h4>Column 1</h4>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
 
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>
             <div class="col-md-4 col-sm-4">
-                <h3>Column 2</h3>
+                <h4>Column 2</h4>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
 
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>
             <div class="col-md-4 col-sm-4">
-                <h3>Column 3</h3>
+                <h4>Column 3</h4>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
 

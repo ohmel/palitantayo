@@ -18,8 +18,8 @@ ptApp.config(function($routeProvider) {
         })
 
         // route for the contact page
-        .when('/contact', {
-            templateUrl : 'pages/contact.html',
-            controller  : 'contactController'
+        .when('/login', {
+            templateUrl : 'app/js/pages/login.html',
+            controller  : 'loginController'
         });
 });

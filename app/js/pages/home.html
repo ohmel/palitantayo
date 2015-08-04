@@ -7,8 +7,15 @@
         color: gray !important;
     }
 
-    .home-tile h1 {
+    .home-tile h3 {
         color: white !important;
+    }
+    .btn-extra{
+        border-radius: 6px !important;
+        font-size: 22px !important;
+        line-height: 1.227 !important;
+        padding: 13px 20px !important;
+        height: 55px !important;
     }
 </style>
 <div class="jumbotron" style="background: #E5E5E5">
@@ -17,12 +24,14 @@
         <div class="text-center">
             <img src="{{globals.rootUrl}}app/images/logo2.png" class="img-responsive" width="">
             <!--<h1 style="color: #BBD631"> Palitan <span style="color: #5CBBBF;">Tayo!</span></h1>-->
-            <input class="input-lg" type="text" placeholder="What are you looking for?" style="width: 700px;">
-            <br/>
-            <br/>
-
-            <p><a class="btn btn-success btn-lg" href="#/" role="button">Search here!</a></p>
-
+            <form class="navbar-form" role="search">
+                <div class="form-group" style="width: 100%">
+                    <input type="text" class="form-control" style="height: 50px; width: 100%; padding: 10px; font-size: 20px" placeholder="What are you looking for?">
+                </div>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-success btn-extra">Search here</button>
+            </form>
         </div>
     </div>
 </div>
@@ -31,18 +40,18 @@
         <div class="col-md-6 col-sm-6" style="background: #BBD631; border: 1px solid #BBD631">
             <div class="container-fluid home-tile">
                 <div class="page-header">
-                    <h1>No Money? <br/>
+                    <h3>No Money? <br/>
                         <small>Just like everybody...</small>
-                    </h1>
+                    </h3>
                 </div>
             </div>
         </div>
         <div class="col-md-6 col-sm-6" style="background: #5CBBBF; border: 1px solid #5CBBBF">
             <div class="container-fluid home-tile">
                 <div class="page-header">
-                    <h1>No Money? <br/>
+                    <h3>No Money? <br/>
                         <small>Just like everybody...</small>
-                    </h1>
+                    </h3>
                 </div>
             </div>
         </div>
@@ -51,18 +60,18 @@
         <div class="col-md-6 col-sm-6" style="background: #e5e5e5; border: 1px solid #e5e5e5">
             <div class="container-fluid home-tile">
                 <div class="page-header">
-                    <h1>No Money? <br/>
+                    <h3>No Money? <br/>
                         <small>Just like everybody...</small>
-                    </h1>
+                    </h3>
                 </div>
             </div>
         </div>
         <div class="col-md-6 col-sm-6" style="background: #4D4D4D; border: 1px solid #4D4D4D">
             <div class="container-fluid home-tile">
                 <div class="page-header">
-                    <h1>No Money? <br/>
+                    <h3>No Money? <br/>
                         <small>Just like everybody...</small>
-                    </h1>
+                    </h3>
                 </div>
             </div>
         </div>
