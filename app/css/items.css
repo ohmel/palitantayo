@@ -18,6 +18,7 @@
     top: 0;
     left: 0;
 }
+
 /*---------------------------------------------------------
 NAV
 ---------------------------------------------------------*/
@@ -33,7 +34,7 @@ NAV
     height: 48px;
 }
 
-.nonDraggableImage{
+.nonDraggableImage {
     -webkit-user-drag: none;
 }
 
@@ -86,4 +87,17 @@ NAV
 .dots .dot a.active {
     border-color: #BED735;
     background-color: #BED735;
+}
+
+.tlabel {
+    color: black;
+    font-size: 15px;
+    position: absolute !important;
+    bottom: 21px !important;
+    background: #56BEC1 !important;
+    width: 80%;
+    opacity: .7;
+}
+.tlabel:hover{
+    opacity: 1;
 }

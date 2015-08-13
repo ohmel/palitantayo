@@ -4,6 +4,6 @@
 // app.js
 
 // create the module and name it scotchApp
-var ptApp = angular.module('ptApp', ['ngRoute', 'ngAnimate', 'ngDialog']);
+var ptApp = angular.module('ptApp', ['ngRoute', 'ngAnimate', 'ngDialog', 'ui.bootstrap']);
 
 // create the controller and inject Angular's $scope
