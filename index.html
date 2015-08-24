@@ -3,6 +3,7 @@
 <html ng-app="ptApp">
 <title>Palitan Tayo</title>
 <head>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <!-- SCROLLS -->
     <!-- load bootstrap and fontawesome via local -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
@@ -13,6 +14,9 @@
     <link rel="stylesheet" href="bower_components/ngDialog/css/ngDialog-theme-default.css">
     <link rel="stylesheet" href="bower_components/ngDialog/css/ngDialog-theme-plain.css">
     <link rel="stylesheet" href="bower_components/ngDialog/css/ngDialog-custom-width.css">
+
+    <!--Ng Notify-->
+    <link rel="stylesheet" href="bower_components/ng-notify/dist/ng-notify.min.css" />
     <style>
         a, button {
             font: 14px 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -34,13 +38,14 @@
 
     <!-- SPELLS -->
     <!-- load angular and angular route via CDN -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/ngDialog/js/ngDialog.js"></script>
+    <script src="bower_components/ng-notify/dist/ng-notify.min.js"></script>
     <script src="bower_components/gsap/src/minified/TweenMax.min.js"></script>
     <script src="app/js/app.js"></script>
     <script src="app/js/routing.js"></script>
@@ -51,6 +56,8 @@
     <script src="app/js/controllers/loginController.js"></script>
 
     <!--Services-->
+    <script src="app/js/services/loginService.js"></script>
+    <script src="app/js/services/permissionsService.js"></script>
     <!--Factories-->
     <script src="app/js/factories/globals.js"></script>
 

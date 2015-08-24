@@ -1,3 +1,13 @@
+<style type="text/css">
+    .css-form input.ng-invalid.ng-touched {
+        border: 2px solid #FA787E;
+        color: white;
+    }
+
+    .css-form input.ng-valid.ng-touched {
+        border: 2px solid #78FA89;
+    }
+</style>
 <div class="container-fluid">
     <div class="row" style="background: #BED735">
         <div class="col-md-12 col-sm-12">
@@ -16,22 +26,22 @@
                 <div class="page-header" style="margin-top: 0px">
                     <h4>Login</h4>
                 </div>
-                <form class="navbar-form" role="login">
+                <div class="navbar-form css-form" role="login" novalidate action="#">
                     <div class="form-group" style="width: 100%">
-                        <input type="text" class="form-control" style="height: 50px; width: 100%; padding: 10px; font-size: 20px" placeholder="Username">
+                        <input type="text" ng-model="user.userName" required class="form-control" style="height: 50px; width: 100%; padding: 10px; font-size: 20px" placeholder="Username">
                         <br>
                         <br>
-                        <input type="password" class="form-control" style="height: 50px; width: 100%; padding: 10px; font-size: 20px" placeholder="Password">
+                        <input type="password" ng-model="user.password" required class="form-control" style="height: 50px; width: 100%; padding: 10px; font-size: 20px" placeholder="Password">
                     </div>
                     <br>
                     <br>
-                    <button type="submit" class="btn btn-success btn-extra">Login Here!</button>
+                    <button type="button" class="btn btn-success btn-extra" ng-click="login()">Login Here!</button>
                     <small>Forgot Password?</small>
-                </form>
+                </div>
                 <div class="text-center">
-                    <button type="button" class="btn btn-primary btn-extra">Login using Facebook</button>
+                    <button type="button" class="btn btn-primary btn-extra"><b>Login using Facebook</b></button>
                     or
-                    <button type="button" class="btn btn-danger btn-extra">Login using Gmail</button>
+                    <button type="button" class="btn btn-danger btn-extra"><b>Login using Gmail</b></button>
                 </div>
                 <br>
                 <div class="text-center" style="border-top: 1px solid #e5e5e5">

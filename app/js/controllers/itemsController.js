@@ -10,6 +10,15 @@ ptApp.controller('itemsController', function ($scope, Globals) {
         {image: $scope.globals.rootUrl+'app/images/logo.jpg', description: 'Image 01'},
     ];
 
+    $scope.items = [
+        "Description 1",
+        "Description 2",
+        "Description 3",
+        "Description 4",
+        "Description 5",
+        "Description 6"
+    ]
+
     $scope.direction = 'left';
     $scope.currentIndex = 0;
 
