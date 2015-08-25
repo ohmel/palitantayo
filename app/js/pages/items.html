@@ -4,10 +4,10 @@
 <div class="container-fluid">
     <div class="row" style="background: #BED735;">
         <!--<div class="col-md-2">-->
-            <!--&lt;!&ndash;<div style="background: white; display: inline-block">&ndash;&gt;-->
-                <!--&lt;!&ndash;<img src="{{globals.rootUrl}}app/images/menu_logo.jpg" class="img-responsive img-circle"&ndash;&gt;-->
-                     <!--&lt;!&ndash;style="display: inline">&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div style="background: white; display: inline-block">&ndash;&gt;-->
+        <!--&lt;!&ndash;<img src="{{globals.rootUrl}}app/images/menu_logo.jpg" class="img-responsive img-circle"&ndash;&gt;-->
+        <!--&lt;!&ndash;style="display: inline">&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
         <!--</div>-->
         <div class="col-md-12">
             <form class="navbar-form navbar-left" role="search">
@@ -21,7 +21,8 @@
     </div>
     <div class="row">
         <div class="">
-            <div class="col-md-12 page-header" style="padding-left: 20px; margin-bottom: 0px; padding-bottom: 0px; margin-top: 0px">
+            <div class="col-md-12 page-header"
+                 style="padding-left: 20px; margin-bottom: 0px; padding-bottom: 0px; margin-top: 0px">
                 <h3 style="color: #BED735">Featured <span style="color: #56BEC1;">Today!</span></h3>
             </div>
         </div>
@@ -41,17 +42,30 @@
                 </div>
             </nav>
         </div>
-        <div class="col-md-4 col-sm-4">
-            <div style="padding-top: 20px">
-                <img src="{{globals.rootUrl}}app/images/logo.jpg" class="img-responsive img-circle" width="60"
-                     style="display: inline">
-                <b style="font-size: 18px">Ohmel Paguirigan</b>
+        <div class="col-md-4 col-sm-4" style="font-size: 15px !important;">
+            <div style="padding-top: 20px" class="row">
+                <div class="col-md-2">
+                    <img src="{{globals.rootUrl}}app/images/user-default.png" class="img-circle" width="70"
+                         style="display: inline">
+                </div>
+                <div class="col-md-10">
+                    <b style="font-size: 18px">@DMoneyMaker</b><br>
 
+                    <p>Augustus Ceasar Amalejo</p>
+                </div>
+
+
+            </div>
+            <div class="row">
                 <p style="border-top: 1px solid #E6E6E6; padding-top: 10px">
-                    Description Goes Here!
-                    <br/><br/>
-                    Specification Goes Here!
-
+                    <b>Oppo N7</b><br>
+                    Slim, Beautifully designed smart phone open to trade for the following items
+                <ul>
+                    <li>Xiaomi 7</li>
+                    <li>Bass Guitar</li>
+                    <li>Vintage</li>
+                </ul>
+                Range Value: 5k - 10k
                 </p>
             </div>
         </div>
@@ -63,20 +77,23 @@
             <h3 style="color: #BED735">Browse <span style="color: #56BEC1;">Here!</span></h3>
         </div>
         <br/>
-        <div class="col-md-4" ng-repeat="item in items">
+
+        <div class="col-md-3" ng-repeat="item in items">
             <div class="thumbnail">
                 <a href="#" class="">
-                    <img src="http://placehold.it/400x200" alt="..."/>
+                    <img src="{{globals.rootUrl}}app/images/items/laptop.png" alt="..."/>
                 </a>
             </div>
-            <div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">
-                {{item}}
+            <div class="container-fluid tlabel">
+                <b>Name of Item</b>
+                <p style="font-size: 14px">
+                    {{item}}
+                </p>
             </div>
         </div>
 
 
     </div>
-    <a href="#0" tooltip>My Tooltip Link</a>
     <nav>
         <ul class="pagination" style="float: right; background: #56BEC1">
             <li>

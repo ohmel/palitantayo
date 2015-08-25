@@ -5,18 +5,18 @@ ptApp.controller('itemsController', function ($scope, Globals) {
     $scope.tooltipMessage = "Description Goes Here sdaf s sdf sdf sf saf sf sdf sdafsdafsdf asdfsda fsd adf sdf";
     $scope.globals = Globals;
     $scope.slides = [
-        {image: $scope.globals.rootUrl+'app/images/logo.png', description: 'Image 00'},
+        {image: $scope.globals.rootUrl+'app/images/featured/f1.gif', description: 'Image 00'},
         {image: $scope.globals.rootUrl+'app/images/logo2.png', description: 'Image 01'},
         {image: $scope.globals.rootUrl+'app/images/logo.jpg', description: 'Image 01'},
     ];
 
     $scope.items = [
-        "Description 1",
-        "Description 2",
-        "Description 3",
-        "Description 4",
-        "Description 5",
-        "Description 6"
+        "Range: 5k - 10k",
+        "Range: 10k - 20k",
+        "Range: 11k - 21k",
+        "Range: 13k - 22k",
+        "Range: 12k - 23k",
+        "Range: 1211k - 23k",
     ]
 
     $scope.direction = 'left';
