@@ -1,13 +1,14 @@
 /**
  * Created by Ohmel on 7/29/2015.
  */
-ptApp.controller('itemsController', function ($scope, Globals) {
-    $scope.tooltipMessage = "Description Goes Here sdaf s sdf sdf sf saf sf sdf sdafsdafsdf asdfsda fsd adf sdf";
+ptApp.controller('itemController', function ($scope, Globals, itemService, $route) {
+    $scope.testMessage = "asdfa asfsf asd fasdf adads sd";
+    $scope.route = $route.current.params;
     $scope.globals = Globals;
     $scope.slides = [
-        {image: $scope.globals.rootUrl+'app/images/featured/f1.gif', description: 'Image 00'},
-        {image: $scope.globals.rootUrl+'app/images/logo2.png', description: 'Image 01'},
-        {image: $scope.globals.rootUrl+'app/images/logo.jpg', description: 'Image 01'},
+        {image: $scope.globals.rootUrl+'app/images/items/1.jpg', description: 'Image 00'},
+        {image: $scope.globals.rootUrl+'app/images/items/phone.jpeg', description: 'Image 01'},
+        {image: $scope.globals.rootUrl+'app/images/items/laptop.png', description: 'Image 01'},
     ];
 
     $scope.items = [

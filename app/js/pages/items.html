@@ -53,8 +53,6 @@
 
                     <p>Augustus Ceasar Amalejo</p>
                 </div>
-
-
             </div>
             <div class="row">
                 <p style="border-top: 1px solid #E6E6E6; padding-top: 10px">
@@ -71,6 +69,19 @@
         </div>
     </div>
 </div>
+<style>
+    .item-label {
+        color: black;
+        font-size: 15px;
+        background: #BED735 !important;
+        width: 100%;
+        opacity: .7;
+        height: 100px;
+    }
+    .tlabel:hover{
+        opacity: 1;
+    }
+</style>
 <div class="container-fluid">
     <div class="row">
         <div class="page-header" style="padding-left: 20px; margin-bottom: 0px; padding-bottom: 0px; margin-top: 0px">
@@ -78,18 +89,21 @@
         </div>
         <br/>
 
-        <div class="col-md-3" ng-repeat="item in items">
+        <div class="col-md-2" ng-repeat="item in items">
             <div class="thumbnail">
                 <a href="#" class="">
-                    <img src="{{globals.rootUrl}}app/images/items/laptop.png" alt="..."/>
+                    <img src="{{globals.rootUrl}}app/images/items/laptop.png" width="200" alt="..."/>
                 </a>
+                <div class="container-fluid" style="line-height: 17px; overflow-x: hidden">
+                    <b style="font-size: 16px !important;">Name of Item if Double line</b>
+                    <p style="font-size: 13px">
+                        Trade Value: <span style="color: #56BEC1"><b>20k - 30k</b></span>
+                        <br>
+                        <i>Gadget, Technology, Mobile</i>
+                    </p>
+                </div>
             </div>
-            <div class="container-fluid tlabel">
-                <b>Name of Item</b>
-                <p style="font-size: 14px">
-                    {{item}}
-                </p>
-            </div>
+
         </div>
 
 

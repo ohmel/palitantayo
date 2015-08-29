@@ -8,7 +8,7 @@
     height: 350px;
     overflow: hidden;
     /*position: relative;*/
-    background: #e6e6e6;
+    background: transparent;
     border: 20px solid #FFF;
     /*margin-top: 20px;*/
 }
@@ -89,15 +89,4 @@ NAV
     background-color: #BED735;
 }
 
-.tlabel {
-    color: black;
-    font-size: 15px;
-    position: absolute !important;
-    bottom: 21px !important;
-    background: #56BEC1 !important;
-    width: 80%;
-    opacity: .7;
-}
-.tlabel:hover{
-    opacity: 1;
-}
+
