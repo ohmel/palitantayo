@@ -13,30 +13,35 @@
         <div class="col-md-12 col-sm-12">
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" style="width: 400px" placeholder="What are you looking for?">
+                    <input type="text" class="form-control" style="width: 400px"
+                           placeholder="What are you looking for?">
                 </div>
                 <button type="submit" class="btn btn-success">Search here</button>
             </form>
         </div>
     </div>
     <br>
+
     <div class="container">
         <div class="row" style="border: 1px solid #E5E5E5;">
-            <div class="col-sm-8" style="background: white">
-                <div class="page-header" style="margin-top: 0px">
+            <div class="col-sm-12 col-md-6 col-md-offset-3 col-sm-offset-0" style="background: white">
+                <div class="page-header" style="margin-top: 0px; text-align: center">
                     <h4>Login</h4>
                 </div>
                 <div class="navbar-form css-form" role="login" novalidate action="#">
                     <div class="form-group" style="width: 100%">
-                        <input type="text" ng-model="user.userName" required class="form-control" style="height: 50px; width: 100%; padding: 10px; font-size: 20px" placeholder="Username">
+                        <input type="text" ng-model="user.userName" required class="form-control"
+                               style="height: 50px; width: 100%; padding: 10px; font-size: 20px" placeholder="Username">
                         <br>
                         <br>
-                        <input type="password" ng-model="user.password" required class="form-control" style="height: 50px; width: 100%; padding: 10px; font-size: 20px" placeholder="Password">
+                        <input type="password" ng-model="user.password" required class="form-control"
+                               style="height: 50px; width: 100%; padding: 10px; font-size: 20px" placeholder="Password">
                     </div>
                     <br>
                     <br>
                     <button type="button" class="btn btn-success btn-extra" ng-click="login()">Login Here!</button>
                     <small>Forgot Password?</small>
+                    <a href="/register" style="display: inline; color: #0033cc"> Register here</a>
                 </div>
                 <div class="text-center">
                     <button type="button" class="btn btn-primary btn-extra"><b>Login using Facebook</b></button>
@@ -44,37 +49,12 @@
                     <button type="button" class="btn btn-danger btn-extra"><b>Login using Gmail</b></button>
                 </div>
                 <br>
+
                 <div class="text-center" style="border-top: 1px solid #e5e5e5">
                     <h4>Advertisement here</h4>
                 </div>
                 <br>
             </div>
-            <div class="col-sm-4" style="background: #56BEC1">
-                <div class="page-header" style="margin-top: 0px">
-                    <h4 style="color: white">Register Here!</h4>
-                </div>
-                <form class="navbar-form" role="register">
-                    <div class="form-group" style="width: 100%">
-                        <input type="text" class="form-control" style="width: 100%" placeholder="Username">
-                        <br>
-                        <br>
-                        <input type="password" class="form-control" style="width: 100%" placeholder="Password">
-                        <br>
-                        <br>
-                        <input type="text" class="form-control" style="width: 100%" placeholder="First Name">
-                        <br>
-                        <br>
-                        <input type="text" class="form-control" style="width: 100%" placeholder="Last Name">
-                        <br>
-                        <br>
-                        <input type="email" class="form-control" style="width: 100%" placeholder="Email Address">
-                    </div>
-                    <br>
-                    <br>
-                    <button type="submit" class="btn btn-default btn-extra">Register Now!</button>
-                </form>
-            </div>
-
         </div>
     </div>
 
