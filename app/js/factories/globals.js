@@ -14,7 +14,7 @@ ptApp.factory('Globals', function($location) {
         host = $location.host()+"/palitantayo/";
     }
     rootUrl = 'http://'+host;
-    var remoteRootUrl = 'http://localhost/palittayo/';
+    var remoteRootUrl = 'http://'+$location.host()+'/palittayo/';
     var isNothing = function (obj) {
         // null and undefined are "empty"
         if (obj == null) return true;
