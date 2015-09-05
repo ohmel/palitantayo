@@ -3,7 +3,7 @@
 
 <div class="container-fluid">
 
-    <div class="row">
+    <div class="row hidden-sm">
         <div class="">
             <div class="col-md-12 page-header"
                  style="padding-left: 20px; margin-bottom: 0px; padding-bottom: 0px; margin-top: 0px">
@@ -71,15 +71,18 @@
 <div class="container-fluid">
     <div class="row">
         <div class="page-header" style="padding-left: 20px; margin-bottom: 0px; padding-bottom: 0px; margin-top: 0px">
-            <h3 style="color: #BED735">Browse <span style="color: #56BEC1;">Here!</span></h3>
+            <h3 style="color: #BED735">Browse Items <span style="color: #56BEC1;">Here!</span></h3>
         </div>
         <br/>
 
         <div class="col-md-3 col-sm-6" ng-repeat="item in items">
             <div class="thumbnail">
-                <a href="#items/{{item.item_id}}" class="">
-                    <img src="{{globals.rootUrl}}app/images/items/news3.jpg" alt="..."/>
-                </a>
+                <div style="height: 250px; overflow-y: hidden; vertical-align: middle">
+                    <a href="#items/{{item.item_id}}" class="">
+                        <img src="{{globals.rootUrl}}app/images/items/{{item.item_id}}.jpg" alt="..."/>
+                    </a>
+                </div>
+
                 <div style="line-height: 17px; overflow-x: hidden">
                     <b style="font-size: 1em !important;">{{item.item_name}}</b>
                     <p style="font-size: 13px">
