@@ -21,24 +21,28 @@
 </style>
 <div class="jumbotron" style="background: #E5E5E5">
     <!--<div class="jumbotron" style="background: #4D4D4D; margin-bottom: 0px">-->
-    <div class="container">
+    <div class="container-fluid">
         <div class="text-center">
             <img src="{{globals.rootUrl}}app/images/logo2.png" class="img-responsive center-block" width="850">
             <!--<h1 style="color: #BBD631"> Palitan <span style="color: #5CBBBF;">Tayo!</span></h1>-->
-            <form class="navbar-form form-inline" role="search">
-                <div class="form-group" style="width: 30%">
-                    <input type="text" class="form-control"
-                           style="height: 50px; width: 100%; padding: 10px; font-size: 20px"
-                           placeholder="What do you have?">
+            <form class="" role="search">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control"
+                                   style="height: 50px; padding: 10px; font-size: 20px"
+                                   placeholder="What do you have?">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control"
+                                   style="height: 50px; padding: 10px; font-size: 20px"
+                                   placeholder="What are you looking for?">
+                        </div>
+                    </div>
                 </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div class="form-group" style="width: 30%">
-                    <input type="text" class="form-control"
-                           style="height: 50px; width: 100%; padding: 10px; font-size: 20px"
-                           placeholder="What are you looking for?">
-                </div>
-                <br>
-                <br>
+
                 <button type="submit" class="btn btn-success btn-extra">Find a trade match</button>
             </form>
         </div>
@@ -61,7 +65,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 col-sm-6" style="background: #e5e5e5; border: 1px solid #e5e5e5">
+        <div class="col-md-6 col-sm-12" style="background: #e5e5e5; border: 1px solid #e5e5e5">
             <div class="home-tile">
                 <div>
                     <h4 style="color: #50C0C1">What is Palitan Tayo?</h4>
@@ -75,7 +79,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-sm-6" style="background: #4D4D4D; border: 1px solid #4D4D4D">
+        <div class="col-md-6 col-sm-12" style="background: #4D4D4D; border: 1px solid #4D4D4D">
             <div class="home-tile text-center">
                 <div>
                     <h4 style="color: white">Trade your items now!</h4>
@@ -109,100 +113,180 @@
     <h3 style="color: #BED735">Cate<span style="color: #56BEC1;">gories!</span></h3>
 </div>
 <div class="container-fluid">
-    <div class="row hehe2" >
-        <div class="col-md-4 col-sm-4 hehe">
-            <div class="thumbnail">
-                <a href="#" class="">
-                    <img src="{{globals.rootUrl}}app/images/categories/r1-1.gif" alt="..."/>
-                </a>
-            </div>
-            <div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">
-                {{item}}
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-2 hehe">
-            <div class="thumbnail">
-                <a href="#" class="">
-                    <img src="{{globals.rootUrl}}app/images/categories/r1-2.gif" alt="..."/>
-                </a>
-            </div>
-            <div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">
-                {{item}}
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-2 hehe">
-            <div class="thumbnail">
-                <a href="#" class="">
-                    <img src="{{globals.rootUrl}}app/images/categories/r1-3.gif" alt="..."/>
-                </a>
-            </div>
-            <div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">
-                {{item}}
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-4 hehe">
-            <div class="thumbnail">
-                <a href="#" class="">
-                    <img src="{{globals.rootUrl}}app/images/categories/r1-4.gif" alt="..."/>
-                </a>
-            </div>
-            <div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">
-                {{item}}
-            </div>
-        </div>
-    </div>
     <div class="row hehe2">
-        <div class="col-md-2 col-sm-2 hehe">
-            <div class="thumbnail">
-                <a href="#" class="">
-                    <img src="{{globals.rootUrl}}app/images/categories/r2-1.gif" alt="..."/>
-                </a>
+        <div class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+            <div class="row hehe2">
+                <div class="col-md-12 col-sm-12 hehe">
+                    <div class="thumbnail">
+                        <a href="#" class="">
+                            <img src="{{globals.rootUrl}}app/images/categories/r1-1.gif" alt="..."/>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 hehe">
+                    <div class="thumbnail">
+                        <a href="#" class="">
+                            <img src="{{globals.rootUrl}}app/images/categories/r2-1.gif" alt="..."/>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 hehe">
+                    <div class="thumbnail">
+                        <a href="#" class="">
+                            <img src="{{globals.rootUrl}}app/images/categories/r2-2.gif" alt="..."/>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">
-                {{item}}
+
+        </div>
+        <div class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+            <div class="row hehe2">
+                <div class="col-md-6 col-sm-6 hehe">
+                    <div class="thumbnail">
+                        <a href="#" class="">
+                            <img src="{{globals.rootUrl}}app/images/categories/r1-2.gif" alt="..."/>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 hehe">
+                    <div class="thumbnail">
+                        <a href="#" class="">
+                            <img src="{{globals.rootUrl}}app/images/categories/r1-3.gif" alt="..."/>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 hehe">
+                    <div class="thumbnail">
+                        <a href="#" class="">
+                            <img src="{{globals.rootUrl}}app/images/categories/r2-3.gif" alt="..."/>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-2 col-sm-2 hehe">
-            <div class="thumbnail">
-                <a href="#" class="">
-                    <img src="{{globals.rootUrl}}app/images/categories/r2-2.gif" alt="..."/>
-                </a>
-            </div>
-            <div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">
-                {{item}}
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-4 hehe">
-            <div class="thumbnail">
-                <a href="#" class="">
-                    <img src="{{globals.rootUrl}}app/images/categories/r2-3.gif" alt="..."/>
-                </a>
-            </div>
-            <div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">
-                {{item}}
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-2 hehe">
-            <div class="thumbnail">
-                <a href="#" class="">
-                    <img src="{{globals.rootUrl}}app/images/categories/r2-4.gif" alt="..."/>
-                </a>
-            </div>
-            <div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">
-                {{item}}
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-2 hehe">
-            <div class="thumbnail">
-                <a href="#" class="">
-                    <img src="{{globals.rootUrl}}app/images/categories/r2-5.gif" alt="..."/>
-                </a>
-            </div>
-            <div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">
-                {{item}}
+        <div class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+            <div class="row hehe2">
+                <div class="col-md-12 col-sm-12 hehe">
+                    <div class="thumbnail">
+                        <a href="#" class="">
+                            <img src="{{globals.rootUrl}}app/images/categories/r1-4.gif" alt="..."/>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 hehe">
+                    <div class="thumbnail">
+                        <a href="#" class="">
+                            <img src="{{globals.rootUrl}}app/images/categories/r2-4.gif" alt="..."/>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 hehe">
+                    <div class="thumbnail">
+                        <a href="#" class="">
+                            <img src="{{globals.rootUrl}}app/images/categories/r2-5.gif" alt="..."/>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-    asdf
 </div>
+<!--<div class="container-fluid">-->
+    <!--<div class="row hehe2" >-->
+        <!--<div class="col-md-4 col-sm-4 hehe">-->
+            <!--<div class="thumbnail">-->
+                <!--<a href="#" class="">-->
+                    <!--<img src="{{globals.rootUrl}}app/images/categories/r1-1.gif" alt="..."/>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">-->
+                <!--{{item}}-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-2 col-sm-2 hehe">-->
+            <!--<div class="thumbnail">-->
+                <!--<a href="#" class="">-->
+                    <!--<img src="{{globals.rootUrl}}app/images/categories/r1-2.gif" alt="..."/>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">-->
+                <!--{{item}}-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-2 col-sm-2 hehe">-->
+            <!--<div class="thumbnail">-->
+                <!--<a href="#" class="">-->
+                    <!--<img src="{{globals.rootUrl}}app/images/categories/r1-3.gif" alt="..."/>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">-->
+                <!--{{item}}-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-4 col-sm-4 hehe">-->
+            <!--<div class="thumbnail">-->
+                <!--<a href="#" class="">-->
+                    <!--<img src="{{globals.rootUrl}}app/images/categories/r1-4.gif" alt="..."/>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">-->
+                <!--{{item}}-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="row hehe2">-->
+        <!--<div class="col-md-2 col-sm-2 hehe">-->
+            <!--<div class="thumbnail">-->
+                <!--<a href="#" class="">-->
+                    <!--<img src="{{globals.rootUrl}}app/images/categories/r2-1.gif" alt="..."/>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">-->
+                <!--{{item}}-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-2 col-sm-2 hehe">-->
+            <!--<div class="thumbnail">-->
+                <!--<a href="#" class="">-->
+                    <!--<img src="{{globals.rootUrl}}app/images/categories/r2-2.gif" alt="..."/>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">-->
+                <!--{{item}}-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-4 col-sm-4 hehe">-->
+            <!--<div class="thumbnail">-->
+                <!--<a href="#" class="">-->
+                    <!--<img src="{{globals.rootUrl}}app/images/categories/r2-3.gif" alt="..."/>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">-->
+                <!--{{item}}-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-2 col-sm-2 hehe">-->
+            <!--<div class="thumbnail">-->
+                <!--<a href="#" class="">-->
+                    <!--<img src="{{globals.rootUrl}}app/images/categories/r2-4.gif" alt="..."/>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">-->
+                <!--{{item}}-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-2 col-sm-2 hehe">-->
+            <!--<div class="thumbnail">-->
+                <!--<a href="#" class="">-->
+                    <!--<img src="{{globals.rootUrl}}app/images/categories/r2-5.gif" alt="..."/>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="container-fluid tlabel" tooltip="{{item}}" tooltip-placement="top">-->
+                <!--{{item}}-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 <hr/>

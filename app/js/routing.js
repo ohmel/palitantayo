@@ -27,6 +27,10 @@ ptApp.config(function($routeProvider) {
             templateUrl : 'app/js/pages/post.html',
             controller  : 'postController'
         })
+        .when('/register', {
+            templateUrl : 'app/js/pages/register.html',
+            controller  : 'registerController'
+        })
         // route for the contact page
         .when('/login', {
             templateUrl : 'app/js/pages/login.html',

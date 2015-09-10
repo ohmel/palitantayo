@@ -11,14 +11,7 @@ ptApp.controller('itemController', function ($scope, Globals, itemService, $rout
         {image: $scope.globals.rootUrl+'app/images/items/laptop.png', description: 'Image 01'},
     ];
 
-    $scope.items = [
-        "Range: 5k - 10k sf hsdj sdkj askf askjfaskj sdf sj asf s askhfj sakf as sdk",
-        "Range: 10k - 20k sa s ks asdh fkj hdkjs jka",
-        "Range: 11k - 21k asf ea ow ksf aga sad we hls awef hsdk ef bskafbas gberiugl hsfakwd we we hwaeoifh e",
-        "Range: 13k - 22k alsf ash grehg fn ghreg 43 jslg ehgs gjbgw l",
-        "Range: 12k - 23k asd ghaskg kg ae;ig ;eor aslkn gesigb ejfa;s jgreougegasdt ga",
-        "Range: 1211k - 23k ask hsakd hkjsdhf kajsdfb sdkajf ksdjafh sdkj",
-    ]
+    $scope.item = {};
 
     $scope.direction = 'left';
     $scope.currentIndex = 0;
@@ -41,6 +34,15 @@ ptApp.controller('itemController', function ($scope, Globals, itemService, $rout
         $scope.direction = 'right';
         $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
     };
+
+    itemService.item(
+        function (success) {
+            $scope.item = success.data;
+        }, function (error) {
+            //ngNotify.set(error.message, 'error');
+        },
+        $scope.route.itemId
+    );
 })
     .animation('.slide-animation', function () {
         return {

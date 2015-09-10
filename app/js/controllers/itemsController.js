@@ -1,23 +1,18 @@
 /**
  * Created by Ohmel on 7/29/2015.
  */
-ptApp.controller('itemsController', function ($scope, Globals) {
+ptApp.controller('itemsController', function ($scope, Globals, itemService, profileService) {
     $scope.tooltipMessage = "Description Goes Here sdaf s sdf sdf sf saf sf sdf sdafsdafsdf asdfsda fsd adf sdf";
     $scope.globals = Globals;
+    $scope.itemService = itemService;
+    $scope.profileService = profileService;
     $scope.slides = [
         {image: $scope.globals.rootUrl+'app/images/featured/f1.gif', description: 'Image 00'},
         {image: $scope.globals.rootUrl+'app/images/logo2.png', description: 'Image 01'},
         {image: $scope.globals.rootUrl+'app/images/logo.jpg', description: 'Image 01'},
     ];
 
-    $scope.items = [
-        "Range: 5k - 10k sf hsdj sdkj askf askjfaskj sdf sj asf s askhfj sakf as sdk",
-        "Range: 10k - 20k sa s ks asdh fkj hdkjs jka",
-        "Range: 11k - 21k asf ea ow ksf aga sad we hls awef hsdk ef bskafbas gberiugl hsfakwd we we hwaeoifh e",
-        "Range: 13k - 22k alsf ash grehg fn ghreg 43 jslg ehgs gjbgw l",
-        "Range: 12k - 23k asd ghaskg kg ae;ig ;eor aslkn gesigb ejfa;s jgreougegasdt ga",
-        "Range: 1211k - 23k ask hsakd hkjsdhf kajsdfb sdkajf ksdjafh sdkj",
-    ]
+    $scope.items = [];
 
     $scope.direction = 'left';
     $scope.currentIndex = 0;
@@ -40,6 +35,14 @@ ptApp.controller('itemsController', function ($scope, Globals) {
         $scope.direction = 'right';
         $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
     };
+
+    itemService.itemList(
+        function (success) {
+            $scope.items = success.data;
+        }, function (error) {
+            //ngNotify.set(error.message, 'error');
+        }
+    );
 })
     .animation('.slide-animation', function () {
         return {

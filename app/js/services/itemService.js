@@ -2,13 +2,25 @@ ptApp.service('itemService', function ($http, Globals) {
 
     "use strict";
     var url = Globals.remoteRootUrl + "index.php/api/";
-    var test = function (callback, errback) {
+
+    var itemList = function (callback, errback){
         $http({
             method: 'GET',
-            url: url + 'site/test'
+            url: url + 'site/itemList'
         }).success(callback).error(errback);
-    };
+    }
+
+    var item = function (callback, errback, itemId){
+        $http({
+            method: 'GET',
+            url: url + 'site/item',
+            params: {
+                itemId: itemId
+            }
+        }).success(callback).error(errback);
+    }
     return {
-        test: test,
+        itemList: itemList,
+        item: item
     };
 });
