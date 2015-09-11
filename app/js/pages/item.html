@@ -29,8 +29,8 @@
                     <div class="col-md-9" style="padding-top: 0px !important;">
                         <b style="font-size: 18px">@DMoneyMaker</b>
                         <p style="line-height: 20px">
-                            Augustus Ceasar Amalejo <br>
-                            <small><i>sd skf skdh fjas</i></small>
+                            {{profile.profile_fname}} {{profile.profile_lname}}  <br>
+                            <small><i>{{profile.profile_location}}</i></small>
                         </p>
                     </div>
                 </div>
@@ -68,20 +68,16 @@
                 <div class="row">
                     <div class="col-md-12">
                         <p style="font-size: 14px">
-                            fhsk afakjsdf sjdfb sdjf jdsf jsdf bsdkjf hjksdf ss sdfsdjk
-                            s fjsdh fkjsdhf kjdsfh sdkjf sdkjf sdkjfh jksfh sdkajfh jksf hs
-                            s hfaskj fsdkjf hsdkjf hsdakf sakjdfh skjdf s
-                            ashfj sbsdkj fsjdfh sdkjfh skjafh skdjfh sakjdfh sdkjf sda
-                            asfjs fsaduf hsdkj
+                            {{profile.profile_flavor_text}}
                         </p>
                         <address style="font-size: 14px">
-                            <i class="fa fa-envelope"></i> &nbsp;&nbsp;&nbsp;agamalejo.gmail.com
+                            <i class="fa fa-envelope"></i> &nbsp;&nbsp;&nbsp;{{profile.profile_email}}
                             <br>
-                            <i class="fa fa-phone"></i> &nbsp;&nbsp;&nbsp;(123) 456-7890
+                            <i class="fa fa-phone"></i> &nbsp;&nbsp;&nbsp;{{profile.profile_tel}}
                             <br>
-                            <i class="fa fa-mobile"></i> &nbsp;&nbsp;&nbsp;(+63)9198999095
+                            <i class="fa fa-mobile"></i> &nbsp;&nbsp;&nbsp;{{profile.profile_mobile}}
                             <br>
-                            <i class="fa fa-globe"></i> &nbsp;&nbsp;&nbsp;Metro Manila
+                            <i class="fa fa-globe"></i> &nbsp;&nbsp;&nbsp;{{profile.profile_location}}
                         </address>
                         <p>
                             <b>LOOKING FOR:</b><br>
@@ -177,8 +173,8 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button class="btn btn-success btn-xs" type="submit"><i class="fa fa-comment"></i> Reply Comment</button>
-                            <button type="button" class="btn btn-success btn-xs"><i class="fa fa-file"></i> Send Proposal</button>
+                            <button class="btn btn-success btn-sm" type="submit"><i class="fa fa-comment"></i> Reply Comment</button>
+                            <button type="button" class="btn btn-success btn-sm"><i class="fa fa-file"></i> Send Proposal</button>
                         </div>
                     </div>
                 </div>
