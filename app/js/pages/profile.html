@@ -1,1 +1,158 @@
-Profile ni bambam
+<link rel="stylesheet" href="app/css/items.css"/>
+<div class="container-fluid">
+    <div class="row" style="background: #BED735;">
+        <!--<div class="col-md-2">-->
+        <!--&lt;!&ndash;<div style="background: white; display: inline-block">&ndash;&gt;-->
+        <!--&lt;!&ndash;<img src="{{globals.rootUrl}}app/images/menu_logo.jpg" class="img-responsive img-circle"&ndash;&gt;-->
+        <!--&lt;!&ndash;style="display: inline">&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</div>-->
+        <div class="col-md-12">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" style="width: 400px"
+                           placeholder="What are you looking for?">
+                </div>
+                <button type="submit" class="btn btn-success">Search here</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 hidden-sm">
+                <div style="padding-top: 20px" class="row">
+                    <div class="col-md-3">
+                        <img src="{{globals.rootUrl}}app/images/user-default.png" class="img-circle" width="70"
+                             style="display: inline">
+                    </div>
+                    <div class="col-md-9" style="padding-top: 0px !important;">
+                        <b style="font-size: 18px">@DMoneyMaker</b>
+                        <p style="line-height: 20px">
+                            {{profile.profile_fname}} {{profile.profile_lname}}  <br>
+                            <small><i>{{profile.profile_location}}</i></small>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <button type="button" class="btn btn-block btn-default btn-sm" style="background: #2C363F"><i class="fa fa-check"></i> Appreciate</button>
+                        <button type="button" class="btn btn-block btn-info btn-sm"><i class="fa fa-envelope"></i> Message</button>
+                    </div>
+                </div>
+                <hr style="border-bottom: 2px solid #989898; margin-bottom: 0px">
+                <div class="row text-center">
+                    <div class="col-sm-4">
+                        <h3><strong style="color: #BED735">160</strong></h3>
+                        <span>
+                            <small>Appreciation</small>
+                        </span>
+                    </div>
+                    <!--/col-->
+                    <div class="col-sm-4">
+                        <h3><strong> 3 </strong></h3>
+                        <span>
+                            <small>Followers</small>
+                        </span>
+                    </div>
+
+                    <!--/col-->
+                    <div class="col-sm-4">
+                        <h3><strong>43</strong></h3>
+                        <span>
+                            <small>Following</small>
+                        </span>
+                    </div>
+                </div>
+                <hr style="border-bottom: 2px solid #989898">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p style="font-size: 14px">
+                            {{profile.profile_flavor_text}}
+                        </p>
+                        <address style="font-size: 14px">
+                            <i class="fa fa-envelope"></i> &nbsp;&nbsp;&nbsp;{{profile.profile_email}}
+                            <br>
+                            <i class="fa fa-phone"></i> &nbsp;&nbsp;&nbsp;{{profile.profile_tel}}
+                            <br>
+                            <i class="fa fa-mobile"></i> &nbsp;&nbsp;&nbsp;{{profile.profile_mobile}}
+                            <br>
+                            <i class="fa fa-globe"></i> &nbsp;&nbsp;&nbsp;{{profile.profile_location}}
+                        </address>
+                        <p>
+                            <b>LOOKING FOR:</b><br>
+                            <span class="label label-info">Drumset</span>
+                            <span class="label label-info">Mobile Gadgets</span>
+                            <span class="label label-info">Laptop</span>
+                            <span class="label label-info">Guitar</span>
+                        </p>
+                    </div>
+
+                </div>
+                <br>
+                <br>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-8" style="line-height: 25px">
+                <div class="row">
+                    <div class="page-header" style="padding-left: 20px; margin-bottom: 0px; padding-bottom: 0px; margin-top: 0px">
+                        <h3 style="color: #BED735">Your <span style="color: #56BEC1;">Gallery</span></h3>
+                    </div>
+                    <br/>
+
+                    <div class="col-md-3 col-sm-6" ng-repeat="item in items" style="padding-bottom: 20px !important;">
+                        <div class="thumbnail" style="height: 250px;">
+                            <div style="height: 150px; overflow-y: hidden; vertical-align: middle">
+                                <a href="#items/{{item.item_id}}" class="">
+                                    <img src="{{globals.rootUrl}}app/images/items/{{item.item_id}}.jpg" alt="..."/>
+                                </a>
+                            </div>
+
+                            <div style="line-height: 17px; overflow-x: hidden">
+                                <b style="font-size: 1em !important;">{{item.item_name}}</b>
+                                <p style="font-size: 13px">
+                                    Trade Value: <span style="color: #56BEC1"><b>{{item.item_trade_value}}</b></span>
+                                    <br>
+                                    <i>Gadget, Technology, Mobile</i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Comments</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <blockquote>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                            <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-12">
+                        <blockquote>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                            <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <button class="btn btn-success btn-sm" type="submit"><i class="fa fa-comment"></i> Reply Comment</button>
+                            <button type="button" class="btn btn-success btn-sm"><i class="fa fa-file"></i> Send Proposal</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,14 +8,6 @@ ptApp.controller('loginController', function ($scope, Globals, ngDialog, ngNotif
     $scope.user = {};
     $scope.perms = []
 
-    loginService.test(
-        function (success) {
-            $scope.resp = success.data;
-        }, function (error) {
-            //ngNotify.set(error.message, 'error');
-        }
-    );
-
     $scope.login = function () {
         //alert("ASDf");
         if ($scope.globals.isNothing($scope.user) || $scope.user.length === 0) {
