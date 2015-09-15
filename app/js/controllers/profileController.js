@@ -1,7 +1,7 @@
 /**
  * Created by Ohmel on 7/29/2015.
  */
-ptApp.controller('profileController', function ($scope, Globals, $route, ngNotify, profileService, itemService) {
+ptApp.controller('profileController', function ($location, $scope, Globals, $route, ngNotify, profileService, itemService) {
     $scope.tooltipMessage = "Description Goes Here sdaf s sdf sdf sf saf sf sdf sdafsdafsdf asdfsda fsd adf sdf";
     $scope.globals = Globals;
     $scope.route = $route.current.params;
@@ -14,15 +14,15 @@ ptApp.controller('profileController', function ($scope, Globals, $route, ngNotif
         function (success) {
             $scope.profile = success.data;
         }, function (error) {
-            ngNotify.set(error.message, 'error')
+            $location.path("/error/" + error.data.errorCode);
         }, $scope.route.userId);
 
     itemService.getUserItems(
-        function(success){
+        function (success) {
             $scope.items = success.data;
-        },function(error){
-            ngNotify.set(error.message, 'error')
-        },$scope.route.userId);
+        }, function (error) {
+            $location.path("/error/" + error.data.errorCode);
+        }, $scope.route.userId);
 
 
 })

@@ -31,9 +31,14 @@ ptApp.config(function($routeProvider) {
             templateUrl : 'app/js/pages/register.html',
             controller  : 'registerController'
         })
+        .when('/error/:errorCode', {
+            templateUrl : 'app/js/pages/error.html',
+            controller  : 'errorController'
+        })
         // route for the contact page
         .when('/login', {
             templateUrl : 'app/js/pages/login.html',
             controller  : 'loginController'
         });
+
 });

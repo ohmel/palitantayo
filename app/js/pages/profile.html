@@ -95,8 +95,12 @@
             <div class="col-md-1"></div>
             <div class="col-md-8" style="line-height: 25px">
                 <div class="row">
+                    {{user}}
                     <div class="page-header" style="padding-left: 20px; margin-bottom: 0px; padding-bottom: 0px; margin-top: 0px">
-                        <h3 style="color: #BED735">Your <span style="color: #56BEC1;">Gallery</span></h3>
+                        <h3 style="color: #BED735">
+                            <span ng-if="user.userId = route.userId">Your</span>
+                            <span ng-if="user.userId != route.userId">{{user.name}}'s</span>
+                            <span style="color: #56BEC1;">Gallery</span></h3>
                     </div>
                     <br/>
 
