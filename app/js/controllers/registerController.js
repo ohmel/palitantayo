@@ -3,4 +3,5 @@
  */
 ptApp.controller('registerController', function ($scope, Globals, itemService, $route) {
     $scope.itemService = itemService;
+    $scope.globals=Globals;
 });
