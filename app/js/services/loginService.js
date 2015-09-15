@@ -24,12 +24,20 @@ ptApp.service('loginService', function ($http, Globals) {
             method: 'GET',
             url: url + 'site/checkLogin'
         }).success(callback).error(errback);
-    }
+    };
+
+    var logout = function(callback, errback){
+        $http({
+            method: 'GET',
+            url: url + 'site/logout'
+        }).success(callback).error(errback);
+    };
 
 
     return {
         test: test,
         checkIfLoggedIn: checkIfLoggedIn,
+        logout: logout,
         login: login
     };
 });
