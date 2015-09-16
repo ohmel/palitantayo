@@ -16,8 +16,71 @@
             </form>
         </div>
     </div>
+    <div>
+        <div class="container-fluid"
+             style="background-color: #ffffff; border-bottom-color: lightgray; border-bottom-style: solid">
+            <H4>Edit Profile</H4>
+        </div>
+        <br/>
 
-    <div class="row">
-        <h1>ACE SHOULD CODE HERE!</h1>
+        <form data-toggle="validator" role="form" class="col-md-4 col-sm-4">
+            <div class="form-group" style="font-size: 15px">
+                <label for="nickName" class="control-label"><strong>Nickname</strong></label>
+                <input type="text" class="form-control" id="nickName" placeholder="How do you want us to remember you?"
+                       required>
+                <small>
+                    <em>
+                        *PT community will know you by this name
+                    </em>
+                </small>
+            </div>
+            <div class="form-group" style="font-size: 15px">
+                <textarea class="form-control" rows="3" placeholder="Tell us more about you"></textarea>
+                <small>
+                    <em>
+                        *This will be your opening description in your profile
+                    </em>
+                </small>
+            </div>
+            <div class="form-group" style="font-size: 15px">
+                <label for="contact" class="control-label"><strong>Contact</strong></label>
+                <input type="number" class="form-control" id="contact" placeholder="Mobile number   (start with +639**)"
+                       required>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" id="contact" placeholder="Landline (Please enter area code)"
+                       required>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="contact" placeholder="Email Address" required>
+            </div>
+        </form>
+        <form>
+            <div class="form-group col-md-4 col-sm-4" style="font-size: 15px">
+                <label class="control-label"><strong>Preferred Meeting Place</strong></label>
+                <textarea class="form-control" rows="3" placeholder="Complete Information for preferred meeting place"></textarea>
+                <div>
+                    <label class="control-label"><strong>Additional Metting place (Optional)</strong></label>
+                    <textarea class="form-control" rows="3" placeholder="Complete Information for preferred meeting place"></textarea>
+                </div>
+                <br/>
+                <div align="right">
+                    <button type="submit" class="btn btn-success">Update Profile</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+
+        </form>
     </div>
 </div>
