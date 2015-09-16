@@ -14,7 +14,7 @@ ptApp.config(function($routeProvider) {
             templateUrl : 'app/js/pages/items.html',
             controller  : 'itemsController'
         })
-        .when('/items/:itemId', {
+        .when('/item/:itemId', {
             templateUrl : 'app/js/pages/item.html',
             controller  : 'itemController'
         })

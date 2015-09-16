@@ -19,7 +19,13 @@
     </div>
     <br>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row text-center" ng-hide="globals.isNothing(profile) == false">
+            <h1><i class="fa fa-spinner fa-spin"></i></h1>
+            Please Wait
+            <br>
+            <br>
+        </div>
+        <div class="row" ng-show="globals.isNothing(profile) == false">
             <div class="col-md-3 hidden-sm">
                 <div style="padding-top: 20px" class="row">
                     <div class="col-md-3">

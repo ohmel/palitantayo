@@ -19,6 +19,12 @@
     </div>
     <br>
     <div class="container-fluid">
+        <div class="row text-center" ng-hide="globals.isNothing(profile) == false">
+            <h1><i class="fa fa-spinner fa-spin"></i></h1>
+            Please Wait
+            <br>
+            <br>
+        </div>
         <div class="row" ng-show="globals.isNothing(profile) == false">
             <div class="col-md-3 hidden-sm">
                 <div style="padding-top: 20px" class="row">
@@ -107,7 +113,7 @@
                     <div class="col-md-3 col-sm-6" ng-repeat="item in items" style="padding-bottom: 20px !important;">
                         <div class="thumbnail" style="height: 250px;">
                             <div style="height: 150px; overflow-y: hidden; vertical-align: middle">
-                                <a href="#items/{{item.item_id}}" class="">
+                                <a href="#item/{{item.item_id}}" class="">
                                     <img src="{{globals.rootUrl}}app/images/items/{{item.item_id}}.jpg" alt="..."/>
                                 </a>
                             </div>
