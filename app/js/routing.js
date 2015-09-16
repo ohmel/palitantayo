@@ -23,6 +23,10 @@ ptApp.config(function($routeProvider) {
             templateUrl : 'app/js/pages/profile.html',
             controller  : 'profileController'
         })
+        .when('/editProfile/:userId', {
+            templateUrl : 'app/js/pages/editProfile.html',
+            controller  : 'editProfileController'
+        })
         .when('/post', {
             templateUrl : 'app/js/pages/post.html',
             controller  : 'postController'
