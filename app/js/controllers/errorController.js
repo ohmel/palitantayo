@@ -6,6 +6,10 @@ ptApp.controller('errorController', function ($scope, Globals, $route, ngNotify)
     $scope.errorCode = $route.current.params.errorCode;
     $scope.errorDesc = "";
     $scope.errorMessage = "";
+    if($scope.errorCode == 401){
+        $scope.errorDesc = "Forbidden Access";
+        $scope.errorMessage = "Hmm, you might be trying to access something that is not yours...We will catch you! Bwahahaha!!";
+    }
     if($scope.errorCode == 404){
         $scope.errorDesc = "Not Found";
         $scope.errorMessage = "The Information that you are trying to view cannot be found!";

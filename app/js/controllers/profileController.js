@@ -10,6 +10,10 @@ ptApp.controller('profileController', function ($location, $scope, Globals, $rou
     //$scope.profile = {};
     //$scope.items = [];
 
+    $scope.editProfile = function(){
+        $location.path("/editProfile/" + $scope.route.userId);
+    }
+
     if (Globals.isNothing($scope.profile) == true) {
         profileService.getProfile(
             function (success) {
