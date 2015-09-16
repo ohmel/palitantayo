@@ -7,6 +7,12 @@ ptApp.controller('loginController', function ($location, $rootScope,$scope, Glob
     $scope.globals = Globals;
     $scope.perms = [];
 
+    if(Globals.isNothing($rootScope.user) != true){
+        if($rootScope.user.isGuest == false){
+            $location.path( "/profile/"+$rootScope.user.userId);
+        }
+    }
+
     $scope.login = function () {
         //alert("ASDf");
         if ($scope.globals.isNothing($scope.user) || $scope.user.length === 0) {
@@ -21,7 +27,7 @@ ptApp.controller('loginController', function ($location, $rootScope,$scope, Glob
                     $location.path( "/profile/"+$rootScope.user.userId);
                 }, function (error) {
                     ngNotify.set(error.message, 'error')
-                    $scope.user = {};
+                    $rootScope.user = {};
                 }, $scope.user);
 
         }
