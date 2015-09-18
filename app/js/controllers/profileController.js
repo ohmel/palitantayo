@@ -7,22 +7,30 @@ ptApp.controller('profileController', function ($location, $scope, Globals, $rou
     $scope.route = $route.current.params;
     $scope.profileService = profileService;
     $scope.itemService = itemService;
-    $scope.profile = {};
-    $scope.items = [];
+    //$scope.profile = {};
+    //$scope.items = [];
 
-    profileService.getProfile(
-        function (success) {
-            $scope.profile = success.data;
-        }, function (error) {
-            $location.path("/error/" + error.data.errorCode);
-        }, $scope.route.userId);
+    $scope.editProfile = function(){
+        $location.path("/editProfile/" + $scope.route.userId);
+    }
 
-    itemService.getUserItems(
-        function (success) {
-            $scope.items = success.data;
-        }, function (error) {
-            $location.path("/error/" + error.data.errorCode);
-        }, $scope.route.userId);
+    if (Globals.isNothing($scope.profile) == true) {
+        profileService.getProfile(
+            function (success) {
+                $scope.profile = success.data;
+            }, function (error) {
+                $location.path("/error/" + error.data.errorCode);
+            }, $scope.route.userId);
+    }
+
+    if (Globals.isNothing($scope.items) == true) {
+        itemService.getUserItems(
+            function (success) {
+                $scope.items = success.data;
+            }, function (error) {
+                $location.path("/error/" + error.data.errorCode);
+            }, $scope.route.userId);
+    }
 
 
 })

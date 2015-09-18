@@ -9,9 +9,7 @@ ptApp.controller('mainController', function ($location, $scope, Globals, ngDialo
     if(Globals.isNothing($rootScope.user)){
         loginService.checkIfLoggedIn(
             function(success){
-                if(success.data.isLoggedIn === true){
-                    $rootScope.user = success.data;
-                }
+                $rootScope.user = success.data;
             }, function (error) {
                 $location.path("/error/" + error.data.errorCode);
             });

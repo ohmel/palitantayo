@@ -112,7 +112,7 @@
                     <li><a href="#contact"><i class="fa fa-comment"></i> Forums</a></li>
                     <li>
                         <a ng-if="user.isLoggedIn === true" href="#profile/{{user.userId}}"><i class="fa fa-user"></i> {{user.name}}</a>
-                        <a ng-if="globals.isNothing(user) === true || user.isGuest === true" href="#login"><i class="fa fa-shield"></i> Login</a>
+                        <a ng-if="user.isGuest === true" href="#login"><i class="fa fa-shield"></i> Login</a>
                     </li>
                     <li>
                         <a ng-if="user.isLoggedIn === true" style="cursor: pointer" ng-click="logout()"><i class="fa fa-sign-out"></i> Logout</a>

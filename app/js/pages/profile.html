@@ -19,7 +19,13 @@
     </div>
     <br>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row text-center" ng-hide="globals.isNothing(profile) == false">
+            <h1><i class="fa fa-spinner fa-spin"></i></h1>
+            Please Wait
+            <br>
+            <br>
+        </div>
+        <div class="row" ng-show="globals.isNothing(profile) == false">
             <div class="col-md-3 hidden-sm">
                 <div style="padding-top: 20px" class="row">
                     <div class="col-md-3">
@@ -36,8 +42,9 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <button type="button" class="btn btn-block btn-default btn-sm" style="background: #2C363F"><i class="fa fa-check"></i> Appreciate</button>
-                        <button type="button" class="btn btn-block btn-info btn-sm"><i class="fa fa-envelope"></i> Message</button>
+                        <button ng-if="user.userId != route.userId" type="button" class="btn btn-block btn-default btn-sm" style="background: #2C363F"><i class="fa fa-check"></i> Appreciate</button>
+                        <button ng-if="user.userId != route.userId" type="button" class="btn btn-block btn-info btn-sm"><i class="fa fa-envelope"></i> Message</button>
+                        <button type="button" class="btn btn-block btn-success btn-sm" ng-click="editProfile()"><i class="fa fa-edit"></i> Edit Profile</button>
                     </div>
                 </div>
                 <hr style="border-bottom: 2px solid #989898; margin-bottom: 0px">
@@ -95,11 +102,10 @@
             <div class="col-md-1"></div>
             <div class="col-md-8" style="line-height: 25px">
                 <div class="row">
-                    {{user}}
                     <div class="page-header" style="padding-left: 20px; margin-bottom: 0px; padding-bottom: 0px; margin-top: 0px">
                         <h3 style="color: #BED735">
-                            <span ng-if="user.userId = route.userId">Your</span>
-                            <span ng-if="user.userId != route.userId">{{user.name}}'s</span>
+                            <span ng-if="user.userId == route.userId">Your</span>
+                            <span ng-if="user.userId != route.userId">{{profile.profile_fname}}'s</span>
                             <span style="color: #56BEC1;">Gallery</span></h3>
                     </div>
                     <br/>
@@ -107,7 +113,7 @@
                     <div class="col-md-3 col-sm-6" ng-repeat="item in items" style="padding-bottom: 20px !important;">
                         <div class="thumbnail" style="height: 250px;">
                             <div style="height: 150px; overflow-y: hidden; vertical-align: middle">
-                                <a href="#items/{{item.item_id}}" class="">
+                                <a href="#item/{{item.item_id}}" class="">
                                     <img src="{{globals.rootUrl}}app/images/items/{{item.item_id}}.jpg" alt="..."/>
                                 </a>
                             </div>

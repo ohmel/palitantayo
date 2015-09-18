@@ -8,14 +8,13 @@ ptApp.config(function($routeProvider) {
         // route for the home page
         .when('/', {
             templateUrl : 'app/js/pages/home.html',
-            controller  : 'mainController'
         })
         // route for the about page
         .when('/items', {
             templateUrl : 'app/js/pages/items.html',
             controller  : 'itemsController'
         })
-        .when('/items/:itemId', {
+        .when('/item/:itemId', {
             templateUrl : 'app/js/pages/item.html',
             controller  : 'itemController'
         })
