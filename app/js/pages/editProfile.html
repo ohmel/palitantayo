@@ -23,42 +23,39 @@
         </div>
         <br/>
 
-        <form data-toggle="validator" role="form" class="col-md-4 col-sm-4">
-            <div style="font-size: 15px">
-                <label for="nickName" class="control-label"><strong>Nickname</strong></label>
-                <input type="text" class="form-control" id="nickName" placeholder="How do you want us to remember you?"
-                       required>
-                <small>
-                    <em>
-                        *PT community will know you by this name
-                    </em>
-                </small>
-            </div>
-            <div style="font-size: 15px">
-                <textarea class="form-control" rows="3" placeholder="Tell us more about you"></textarea>
-                <small>
-                    <em>
-                        *This will be your opening description in your profile
-                    </em>
-                </small>
-            </div>
-            <div style="font-size: 15px">
-                <label for="contact" class="control-label"><strong>Contact</strong></label>
-                <input type="number" class="form-control" id="contact" placeholder="Mobile number   (start with +639**)"
-                       required>
-            </div>
-            <br/>
-            <div>
-                <input type="number" class="form-control" id="contact" placeholder="Landline (Please enter area code)"
-                       required>
-            </div>
-            <br/>
-            <div>
-                <input type="email" class="form-control" id="contact" placeholder="Email Address" required>
-            </div>
-        </form>
         <form>
-            <div class="col-md-4 col-sm-4" style="font-size: 15px">
+            <div class="col-md-4 col-sm-12">
+                <div style="font-size: 15px">
+                    <label name="nickName"<strong>Nickname</strong></label>
+                    <input type="text" class="form-control" id="nickName" ng-maxlength=20 placeholder="How do you want us to remember you?" required />
+                    <small style="color:#ff0000">
+                        <em>
+                            *PT community will know you by this name
+                        </em>
+                    </small>
+                </div>
+                <div class="form-group" style="font-size: 15px">
+                    <textarea class="form-control" rows="3" placeholder="Tell us more about you"></textarea>
+                    <small style="color:#ff0000;">
+                        <em>
+                            *This will be your opening description in your profile
+                        </em>
+                    </small>
+                </div>
+                <div class="form-group" style="font-size: 15px">
+                    <label for="contact" class="control-label"><strong>Contact</strong></label>
+                    <input type="number" class="form-control" id="contact" placeholder="Mobile number   (start with +639**)"
+                           required>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" id="contact" placeholder="Landline (Please enter area code)"
+                           required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="contact" placeholder="Email Address" required>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12" style="font-size: 15px">
                 <label class="control-label"><strong>Preferred Meeting Place</strong></label>
                 <textarea class="form-control" rows="3" placeholder="Complete Information for preferred meeting place"></textarea>
                 <div>
@@ -70,19 +67,10 @@
                     <button type="submit" class="btn btn-success">Update Profile</button>
                     <button type="reset" class="btn btn-danger">Reset</button>
                 </div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
             </div>
-
         </form>
+        <br/>
+        <br/>
+        <br/>
     </div>
 </div>
