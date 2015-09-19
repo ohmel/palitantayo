@@ -4,6 +4,10 @@
 // app.js
 
 // create the module and name it scotchApp
-var ptApp = angular.module('ptApp', ['ngRoute', 'ngAnimate', 'ngDialog', 'ngNotify', 'ngCookies', 'ui.bootstrap', 'ngMessages']);
-
+var ptApp = angular.module('ptApp', ['ngRoute', 'ngAnimate', 'ngDialog', 'ngNotify', 'ngCookies', 'ui.bootstrap', 'ngMessages', 'ui.tinymce']);
+ptApp.filter('to_trusted', ['$sce', function($sce){
+    return function(text) {
+        return $sce.trustAsHtml(text);
+    };
+}]);
 // create the controller and inject Angular's $scope
