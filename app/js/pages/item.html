@@ -159,9 +159,10 @@
                 <div class="row" ng-if="globals.isNothing(comments) != true">
                     <div class="col-md-12" ng-repeat="comment in comments">
                         <blockquote>
-                            <p>{{comment.comment.comment}}</p>
-                            <footer><a style="display: inline;" stl href="#/profile/{{comment.comment.poster.user_id}}">{{comment.comment.poster.user_fullname}}</a> <br>&nbsp;&nbsp;<span style="font-size: 10px">Date posted: {{comment.comment.date_posted}}</span></footer>
+                            <div ng-bind-html="comment.comment.comment | to_trusted"></div>
+                            <footer><a style="display: inline;" href="#/profile/{{comment.comment.poster.user_id}}">{{comment.comment.poster.user_fullname}}</a> <br>&nbsp;&nbsp;<span style="font-size: 10px">Date posted: {{comment.comment.date_posted}}</span></footer>
                         </blockquote>
+
                     </div>
 
                 </div>
@@ -174,12 +175,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea class="form-control" rows="3" ng-model="commentMessage" ui-tinymce>fsdfsd</textarea>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button class="btn btn-success btn-sm" type="submit"><i class="fa fa-comment"></i> Reply Comment</button>
+                            <button class="btn btn-success btn-sm" ng-click="postComment(commentMessage)" ng-disabled="commentMessage == ''"><i class="fa fa-comment"></i> Reply Comment</button>
                             <button type="button" class="btn btn-success btn-sm"><i class="fa fa-file"></i> Send Proposal</button>
                         </div>
                     </div>

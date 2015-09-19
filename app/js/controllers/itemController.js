@@ -14,9 +14,30 @@ ptApp.controller('itemController', function ($scope, Globals, itemService, $rout
     $scope.item = {};
     $scope.profile = {};
     $scope.comments = [];
+    $scope.commentMessage = "";
 
     $scope.direction = 'left';
     $scope.currentIndex = 0;
+
+    $scope.postComment = function(commentMessage){
+        commentService.postComment(
+            function(success){
+                if(Globals.isNothing($scope.comments) === true){
+                    commentService.getComments(
+                        function (success) {
+                            $scope.comments = success.data;
+                        }, function (error) {
+                            ngNotify.set(error.message, 'error')
+                        }, $scope.route.itemId, 'item');
+                }else{
+                    $scope.comments.push(success.data);
+                }
+                $scope.commentMessage = "";
+            }, function (error){
+                ngNotify.set(error.message, 'error');
+            },$scope.commentMessage ,$scope.route.itemId ,'item'
+        );
+    };
 
     $scope.setCurrentSlideIndex = function (index) {
         $scope.direction = (index > $scope.currentIndex) ? 'left' : 'right';
