@@ -16,7 +16,7 @@ ptApp.service('commentService', function ($http, Globals) {
             method: 'GET',
             url: url + 'comment/getComments',
             params: {
-                id: id,
+                parentId: id,
                 commentType: commentType
             }
         }).success(callback).error(errback);

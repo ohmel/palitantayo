@@ -1,0 +1,20 @@
+{
+  "success": "true",
+  "message": "Record(s) found",
+  "data": [
+    {
+      "comment": {
+        "comment_id": "1",
+        "comment": "this is good",
+        "user_id": "1",
+        "item_id": "0",
+        "date_posted": "2015-09-19",
+        "poster_id": "1",
+        "poster": {
+          "user_id": "1",
+          "user_fullname": "Administrator"
+        }
+      }
+    }
+  ]
+}

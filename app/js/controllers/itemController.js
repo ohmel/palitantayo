@@ -1,7 +1,7 @@
 /**
  * Created by Ohmel on 7/29/2015.
  */
-ptApp.controller('itemController', function ($scope, Globals, itemService, $route, profileService, ngNotify) {
+ptApp.controller('itemController', function ($scope, Globals, itemService, $route, profileService, ngNotify, commentService) {
     $scope.testMessage = "asdfa asfsf asd fasdf adads sd";
     $scope.route = $route.current.params;
     $scope.globals = Globals;
@@ -13,6 +13,7 @@ ptApp.controller('itemController', function ($scope, Globals, itemService, $rout
 
     $scope.item = {};
     $scope.profile = {};
+    $scope.comments = [];
 
     $scope.direction = 'left';
     $scope.currentIndex = 0;
@@ -36,6 +37,12 @@ ptApp.controller('itemController', function ($scope, Globals, itemService, $rout
         $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
     };
 
+    commentService.getComments(
+        function (success) {
+            $scope.comments = success.data;
+        }, function (error) {
+            ngNotify.set(error.message, 'error')
+        }, $scope.route.itemId, 'item');
 
 
     itemService.item(
