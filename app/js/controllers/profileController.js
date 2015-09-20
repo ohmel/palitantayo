@@ -9,16 +9,27 @@ ptApp.controller('profileController', function ($location, $scope, Globals, $rou
     $scope.itemService = itemService;
     //$scope.profile = {};
     $scope.comments = [];
+    $scope.commentMessage = "";
 
     $scope.editProfile = function () {
         $location.path("/editProfile/" + $scope.route.userId);
+    }
+
+    $scope.postComment = function(commentMessage){
+        commentService.postComment(
+            function(success){
+                $scope.comments.push(success.data);
+            }, function (error){
+                ngNotify.set(error.message, 'error');
+            },$scope.commentMessage ,$scope.route.userId ,'user'
+        );
     }
 
     commentService.getComments(
         function (success) {
             $scope.comments = success.data;
         }, function (error) {
-            ngNotify.set(error.message, 'error')
+            ngNotify.set(error.message, 'error');
         }, $scope.route.userId, 'user');
 
     if (Globals.isNothing($scope.profile) == true) {
