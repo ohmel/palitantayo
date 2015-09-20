@@ -3,35 +3,27 @@ ptApp.service('commentService', function ($http, Globals) {
     "use strict";
     var url = Globals.remoteRootUrl + "index.php/api/";
 
-    var postComment = function (callback, errback){
+    var postComment = function (callback, errback, comment, commentType){
         $http({
             method: 'POST',
-            url: url + 'site/itemList'
+            url: url + 'comment/postComment',
+            data: comment
         }).success(callback).error(errback);
     };
 
-    var getComments = function (callback, errback, userId){
+    var getComments = function (callback, errback, id, commentType){
         $http({
             method: 'GET',
-            url: url + 'item/getUserItems',
+            url: url + 'comment/getComments',
             params: {
-                userId: userId
+                parentId: id,
+                commentType: commentType
             }
         }).success(callback).error(errback);
     };
 
-    var item = function (callback, errback, itemId){
-        $http({
-            method: 'GET',
-            url: url + 'site/item',
-            params: {
-                itemId: itemId
-            }
-        }).success(callback).error(errback);
-    };
     return {
-        itemList: itemList,
-        getUserItems: getUserItems,
-        item: item
+        getComments: getComments,
+        postComment: postComment
     };
 });
