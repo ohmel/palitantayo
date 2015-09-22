@@ -130,7 +130,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        {{item.item_desc}}
+                        <div ng-bind-html="item.item_desc | to_trusted"></div>
                     </div>
                 </div>
 
@@ -160,6 +160,7 @@
                     <div class="col-md-12" ng-repeat="comment in comments">
                         <blockquote>
                             <div ng-bind-html="comment.comment.comment | to_trusted"></div>
+                            <br>
                             <footer><a style="display: inline;" href="#/profile/{{comment.comment.poster.user_id}}">{{comment.comment.poster.user_fullname}}</a> <br>&nbsp;&nbsp;<span style="font-size: 10px">Date posted: {{comment.comment.date_posted}}</span></footer>
                         </blockquote>
 
