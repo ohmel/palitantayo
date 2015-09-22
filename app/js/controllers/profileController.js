@@ -18,8 +18,13 @@ ptApp.controller('profileController', function ($location, $scope, Globals, $rou
     $scope.postComment = function(commentMessage){
         commentService.postComment(
             function(success){
-                if(Globals.isNothing($scope.comments) == true){
-                    $scope.comments = success.data;
+                if(Globals.isNothing($scope.comments) === true){
+                    commentService.getComments(
+                        function (success) {
+                            $scope.comments = success.data;
+                        }, function (error) {
+                            ngNotify.set(error.message, 'error')
+                        }, $scope.route.itemId, 'item');
                 }else{
                     $scope.comments.push(success.data);
                 }
