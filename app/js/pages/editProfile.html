@@ -23,25 +23,6 @@
         </div>
         <br/>
 
-<<<<<<< HEAD
-        <form name="userForm" novalidate>
-            <div class="col-md-4 col-sm-12">
-                <div class="form-group">
-                    <label>Nick name</label>
-                    <input type="text" name="name" class="form-control"
-                           ng-model="main.nickName"
-                           ng-minlength="5"
-                           ng-maxlength="10"
-                           required>
-                    <!-- ngMessages goes here -->
-                    <div class="help-block" ng-messages="userForm.name.$error" ng-if="userForm.name.$touched">
-                        <p ng-message="minlength">Your nickname is too short.</p>
-
-                        <p ng-message="maxlength">Your nickname is too long.</p>
-
-                        <p ng-message="required">Your nickname is required.</p>
-                    </div>
-=======
         <form data-toggle="validator" role="form" class="col-md-4 col-sm-4">
             <div class="form-group" style="font-size: 15px">
                 <label for="nickName" class="control-label"><strong>Nickname</strong></label>
@@ -82,18 +63,25 @@
                     <label class="control-label"><strong>Additional Metting place (Optional)</strong></label>
                     <textarea class="form-control" rows="3" placeholder="Complete Information for preferred meeting place"></textarea>
                     <textarea class="form-control" rows="3" ng-model="commentMessage" ui-tinymce></textarea>
->>>>>>> ohmel-branch
                 </div>
-                <div class="form-group">
-                    <label>Description</label>
-                    <textarea class="form-control"  rows="3"
-                              required></textarea>
+                <br/>
+                <div align="right">
+                    <button type="submit" class="btn btn-success">Update Profile</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
                 </div>
-                <div class="form-group">
-                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+
         </form>
-        <br/>
-        <br/>
-        <br/>
     </div>
 </div>
