@@ -1,14 +1,14 @@
 /**
  * Created by Ohmel on 7/29/2015.
  */
-ptApp.controller('itemController', function ($scope, Globals, itemService, $route, profileService, ngNotify, commentService) {
+ptApp.controller('itemController', function ($rootScope, $scope, Globals, itemService, $route, profileService, ngNotify, commentService) {
     $scope.testMessage = "asdfa asfsf asd fasdf adads sd";
     $scope.route = $route.current.params;
     $scope.globals = Globals;
     $scope.slides = [
-        {image: $scope.globals.rootUrl+'app/images/items/1.jpg', description: 'Image 00'},
-        {image: $scope.globals.rootUrl+'app/images/items/phone.jpeg', description: 'Image 01'},
-        {image: $scope.globals.rootUrl+'app/images/items/laptop.png', description: 'Image 01'},
+        {image: $scope.globals.rootUrl + 'app/images/items/1.jpg', description: 'Image 00'},
+        {image: $scope.globals.rootUrl + 'app/images/items/phone.jpeg', description: 'Image 01'},
+        {image: $scope.globals.rootUrl + 'app/images/items/laptop.png', description: 'Image 01'},
     ];
 
     $scope.item = {};
@@ -18,26 +18,39 @@ ptApp.controller('itemController', function ($scope, Globals, itemService, $rout
 
     $scope.direction = 'left';
     $scope.currentIndex = 0;
+    $scope.following = false;
 
-    $scope.postComment = function(commentMessage){
+    $scope.postComment = function (commentMessage) {
         commentService.postComment(
-            function(success){
-                if(Globals.isNothing($scope.comments) === true){
+            function (success) {
+                if (Globals.isNothing($scope.comments) === true) {
                     commentService.getComments(
                         function (success) {
                             $scope.comments = success.data;
                         }, function (error) {
                             ngNotify.set(error.message, 'error')
                         }, $scope.route.itemId, 'item');
-                }else{
+                } else {
                     $scope.comments.push(success.data);
                 }
                 $scope.commentMessage = "";
-            }, function (error){
+            }, function (error) {
                 ngNotify.set(error.message, 'error');
-            },$scope.commentMessage ,$scope.route.itemId ,'item'
+            }, $scope.commentMessage, $scope.route.itemId, 'item'
         );
     };
+
+    $scope.follow = function () {
+        $userId = $rootScope.user.userId;
+        $followingId = $scope.route.userId;
+        profileService.follow(
+            function (success) {
+                $scope.following = success.data;
+            }, function (error) {
+                ngNotify.set(error.message, 'error')
+            }, $userId, $followingId
+        );
+    }
 
     $scope.setCurrentSlideIndex = function (index) {
         $scope.direction = (index > $scope.currentIndex) ? 'left' : 'right';
