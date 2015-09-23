@@ -3,10 +3,11 @@
  */
 ptApp.controller('editProfileController', function ($location, $rootScope, $scope, Globals, $route, ngNotify, profileService) {
     $scope.profile={};
-    if($rootScope.user.userId != $route.current.params.userId){
-        $location.path("/error/" + 401);
-    }else{
-
-
-    }
+    $scope.filterValue = function($event){
+        if(isNaN(String.fromCharCode($event.keyCode))){
+            $event.preventDefault();
+        }else{
+            alert("ghghgh");
+        }
+    };
 })
