@@ -52,11 +52,11 @@
                 <div <strong>Contact</strong>
                 <label>mobile</label>
                     <label for="contact" class="control-label">
-                    <input type="text" name="name" class="form-control" placeholder="Mobile Number. (Must start with +63**)"
-                           ng-model="main.name"
+                    <input type="text" name="mobile" class="form-control" placeholder="Mobile Number. (Must start with +63**)"
+                           ng-model="main.mobile"
                            ng-minlength="13"
                            required>
-                    <div class="help-block" ng-messages="userForm.name.$error" ng-if="userForm.name.$touched" style="color: #ff0000">
+                    <div class="help-block" ng-messages="userForm.mobile.$error" ng-if="userForm.mobile.$touched" style="color: #ff0000">
                         <p ng-message="minlength" style="font-size: 14px">Your number is too short. the number must start with +63**</p>
                         <p ng-message="required" style="font-size: 14px">Your number is required.</p>
                     </div>
