@@ -19,13 +19,13 @@
     </div>
     <br>
     <div class="container-fluid">
-        <div class="row text-center" ng-hide="globals.isNothing(profile) == false">
+        <div class="row text-center" ng-hide="pageLoaded == true">
             <h1><i class="fa fa-spinner fa-spin"></i></h1>
             Please Wait
             <br>
             <br>
         </div>
-        <div class="row" ng-show="globals.isNothing(profile) == false">
+        <div class="row" ng-show="pageLoaded == true">
             <div class="col-md-3 hidden-sm">
                 <div style="padding-top: 20px" class="row">
                     <div class="col-md-3">
@@ -42,7 +42,8 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <button type="button" class="btn btn-block btn-default btn-sm" style="background: #2C363F"><i class="fa fa-check"></i> Appreciate</button>
+                        <button ng-show="following == false" type="button" class="btn btn-block btn-default btn-sm" ng-click="follow()" style="background: #2C363F"><i class="fa fa-check"></i> Follow</button>
+                        <button ng-show="following == true" type="button" class="btn btn-block btn-default btn-sm" ng-click="unFollow()" style="background: #2C363F"><i class="fa fa-remove"></i> Unfollow</button>
                         <button type="button" class="btn btn-block btn-info btn-sm"><i class="fa fa-envelope"></i> Message</button>
                     </div>
                 </div>
@@ -56,7 +57,7 @@
                     </div>
                     <!--/col-->
                     <div class="col-sm-4">
-                        <h3><strong> 3 </strong></h3>
+                        <h3><strong> {{profile.followers}} </strong></h3>
                         <span>
                             <small>Followers</small>
                         </span>
@@ -176,7 +177,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <textarea class="form-control" rows="3" ng-model="commentMessage" ui-tinymce>fsdfsd</textarea>
+                            <textarea class="form-control" rows="3" ng-model="commentMessage"></textarea>
                         </div>
                     </div>
                     <div class="col-md-12">

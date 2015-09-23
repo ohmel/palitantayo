@@ -19,6 +19,7 @@ ptApp.controller('itemController', function ($rootScope, $scope, Globals, itemSe
     $scope.direction = 'left';
     $scope.currentIndex = 0;
     $scope.following = false;
+    $scope.pageLoaded = false;
 
     $scope.postComment = function (commentMessage) {
         commentService.postComment(
@@ -41,14 +42,14 @@ ptApp.controller('itemController', function ($rootScope, $scope, Globals, itemSe
     };
 
     $scope.follow = function () {
-        $userId = $rootScope.user.userId;
-        $followingId = $scope.route.userId;
+        var followerId = $rootScope.user.userId;
+        var followedId = $scope.profile.user_id;
         profileService.follow(
             function (success) {
                 $scope.following = success.data;
             }, function (error) {
                 ngNotify.set(error.message, 'error')
-            }, $userId, $followingId
+            }, followedId, followerId
         );
     }
 
@@ -71,6 +72,7 @@ ptApp.controller('itemController', function ($rootScope, $scope, Globals, itemSe
         $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
     };
 
+
     commentService.getComments(
         function (success) {
             $scope.comments = success.data;
@@ -85,6 +87,19 @@ ptApp.controller('itemController', function ($rootScope, $scope, Globals, itemSe
             profileService.getProfile(
                 function (success) {
                     $scope.profile = success.data;
+                    var followerId = $rootScope.user.userId;
+                    var followedId = $scope.profile.user_id;
+                    profileService.checkIfFollowing(
+                        function (success) {
+                            $scope.following = success.data
+                            if($scope.following == true){
+                                $scope.pageLoaded = true;
+                            }
+                        }, function (error) {
+                            ngNotify.set(error.message, 'error')
+                        }, followedId, followerId
+                    )
+
                 }, function (error) {
                     ngNotify.set(error.message, 'error')
                 }, $scope.item.user_id);

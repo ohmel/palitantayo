@@ -13,30 +13,31 @@ ptApp.service('profileService', function ($http, Globals) {
         }).success(callback).error(errback);
     };
 
-    var follow = function(callback, errback, userId, followingId){
+    var follow = function(callback, errback, followedId, followerId){
         $http({
             method: 'POST',
             url: url + 'profile/follow',
             data: {
-                userId: userId,
-                followingId: followingId
+                followedId: followedId,
+                followerId: followerId
             }
         }).success(callback).error(errback);
     };
 
-    var checkIfFollowing = function(callback, errback, userId, followingId){
+    var checkIfFollowing = function(callback, errback, followedId, followerId){
         $http({
             method: 'GET',
             url: url + 'profile/checkIfFollowing',
             params: {
-                userId: userId,
-                followingId: followingId
+                followedId: followedId,
+                followerId: followerId
             }
         }).success(callback).error(errback);
     };
 
     return {
         getProfile: getProfile,
+        checkIfFollowing: checkIfFollowing,
         follow: follow,
     };
 });
