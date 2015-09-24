@@ -2,7 +2,6 @@
  * Created by Ohmel on 7/29/2015.
  */
 ptApp.controller('itemController', function ($rootScope, $scope, Globals, itemService, $route, profileService, ngNotify, commentService) {
-    $scope.testMessage = "asdfa asfsf asd fasdf adads sd";
     $scope.route = $route.current.params;
     $scope.globals = Globals;
     $scope.slides = [
@@ -22,6 +21,7 @@ ptApp.controller('itemController', function ($rootScope, $scope, Globals, itemSe
     $scope.pageLoaded = false;
 
     $scope.postComment = function (commentMessage) {
+        $scope.commentMessage = commentMessage;
         commentService.postComment(
             function (success) {
                 if (Globals.isNothing($scope.comments) === true) {
@@ -51,7 +51,7 @@ ptApp.controller('itemController', function ($rootScope, $scope, Globals, itemSe
                 ngNotify.set(error.message, 'error')
             }, followedId, followerId
         );
-    }
+    };
 
     $scope.setCurrentSlideIndex = function (index) {
         $scope.direction = (index > $scope.currentIndex) ? 'left' : 'right';
@@ -91,10 +91,8 @@ ptApp.controller('itemController', function ($rootScope, $scope, Globals, itemSe
                     var followedId = $scope.profile.user_id;
                     profileService.checkIfFollowing(
                         function (success) {
-                            $scope.following = success.data
-                            if($scope.following == true){
-                                $scope.pageLoaded = true;
-                            }
+                            $scope.following = success.data;
+                            $scope.pageLoaded = true;
                         }, function (error) {
                             ngNotify.set(error.message, 'error')
                         }, followedId, followerId
