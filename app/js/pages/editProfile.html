@@ -24,34 +24,36 @@
         <br/>
 
         <form name="userForm" novalidate>
-            <div role="form" class="col-md-4 col-sm-4">
+            <div role="form" class="col-md-4 col-sm-12">
                 <div class="form-group" >
                     <label>Name</label>
-                    <input type="text" name="name" class="form-control"
-                           ng-model="main.name"
+                    <input type="text" name="nickname" class="form-control"
+                           ng-model="main.nickname"
                            ng-minlength="5"
                            ng-maxlength="10"
                            required>
 
                     <!-- ngMessages goes here -->
-                    <div class="help-block" ng-messages="userForm.name.$error" ng-if="userForm.name.$touched">
-                        <p ng-message="minlength">Your name is too short.</p>
-                        <p ng-message="maxlength">Your name is too long.</p>
-                        <p ng-message="required">Your name is required.</p>
+                    <div class="help-block" ng-messages="userForm.nickname.$error" ng-if="userForm.nickname.$touched" style="color: red">
+                        <p ng-message="minlength" style="font-size: 14px">Your name is too short.</p>
+                        <p ng-message="maxlength" style="font-size: 14px">Your name is too long.</p>
+                        <p ng-message="required" style="font-size: 14px">Your name is required.</p>
                     </div>
 
                 </div>
                 <div class="form-group" style="font-size: 15px">
-                    <textarea class="form-control" rows="3" ng-model="commentMessage" ui-tinymce>fsdfsd</textarea>
-                    <small>
+                    <label>Description</label>
+                    <textarea class="form-control" style="height: 227px" ng-model="commentMessage" ui-tinymce>fsdfsd</textarea>
+                    <small style="color: red">
                         <em>
                             *This will be your opening description in your profile
                         </em>
                     </small>
                 </div>
-                <div <strong>Contact</strong>
-                <label>mobile</label>
-                    <label for="contact" class="control-label">
+            </div>
+            <div class= "col-md-4 col-sm-12" style="font-size: 15px">
+                <div class="form-group">
+                    <label class="control-label"><strong>Contact</strong></label>
                     <input type="text" name="mobile" class="form-control" placeholder="Mobile Number. (Must start with +63**)"
                            ng-model="main.mobile"
                            ng-minlength="13"
@@ -60,22 +62,33 @@
                         <p ng-message="minlength" style="font-size: 14px">Your number is too short. the number must start with +63**</p>
                         <p ng-message="required" style="font-size: 14px">Your number is required.</p>
                     </div>
-
                 </div>
                 <div class="form-group">
                     <input type="text" name="landline" class="form-control" placeholder="Landline number. (Must start with area code)"
-                           ng-model="main.name"
-                           ng-minlength="9">
-                    <div class="help-block" ng-messages="userForm.name.$error" ng-if="userForm.name.$touched" style="color: #ff0000">
-                        <p ng-message="minlength" style="font-size: 14px">Your number is too short. the number must start with +63**</p>
+                           ng-model="main.landline"
+                           ng-maxlength="9"
+                            ng-minlength="8">
+                    <div class="help-block" ng-messages="userForm.landline.$error" ng-if="userForm.landline.$touched" style="color: #ff0000">
+                        <p ng-message="minlength" style="font-size: 14px">Your number is too short. the number must start with area code</p>
+                        <p ng-message="maxlength" style="font-size: 14px">Your number is too long. the number must start with area code</p>
                     </div>
-
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" id="contact" placeholder="Email Address" required>
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control"
+                           ng-model="main.email"
+                           ng-minlength="5"
+                           ng-maxlength="20"
+                           required>
+                    <!-- ngMessages goes here -->
+                    <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched" style="color: #ff0000">
+                        <p ng-message="required" style="font-size: 14px">This field is required</p>
+                        <p ng-message="email" style="font-size: 14px">This needs to be a valid email</p>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group col-md-4 col-sm-4" style="font-size: 15px">
+
+                <div class="form-group">
+                </div>
                 <label class="control-label"><strong>Preferred Meeting Place</strong></label>
                 <textarea class="form-control" rows="3"
                           placeholder="Complete Information for preferred meeting place"></textarea>
