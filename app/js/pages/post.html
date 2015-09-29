@@ -18,84 +18,97 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="row">
-
+        <div>
+            <div>
+                <div>
                 </div>
                 <br/>
 
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="itemName" placeholder="Item Name">
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" rows="3" placeholder="Description"></textarea>
-                    </div>
-                    <div>
-                        <div style="display: inline-block">
-                            <div class="form-group">
-                                <select class="form-control" style="width: 170px">
-                                    <option>Salect range from</option>
-                                    <option>100</option>
-                                    <option>500</option>
-                                    <option>5,000</option>
-                                    <option>10,000</option>
-                                    <option>Above</option>
-                                </select>
-                            </div>
-                        </div>
-                        &nbsp;
+                <form name="userForm" novalidate>
+                    <div role="form" class="form-group col-md-4 col-sm-4">
+                        <div>
+                            <label>Item Name</label>
+                            <input type="text" name="itemName" class="form-control"
+                                   ng-model="main.itemName"
+                                   ng-maxlength="50"
+                                   required>
 
-                        <div style="display: inline-block">
-                            <div class="form-group">
-                                <select class="form-control" style="width: 170px">
-                                    <option>Select range to</option>
-                                    <option>100</option>
-                                    <option>500</option>
-                                    <option>5,000</option>
-                                    <option>10,000</option>
-                                    <option>Above</option>
-                                </select>
+                            <!-- ngMessages goes here -->
+                            <div class="help-block" ng-messages="userForm.itemName.$error" ng-if="userForm.itemName.$touched" style="color: red">
+                                <p ng-message="maxlength" style="font-size: 14px">Your Item name is too long.</p>
+                                <p ng-message="required" style="font-size: 14px">Your Item name is required.</p>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" style="height: 227px" ng-model="commentMessage" ui-tinymce>Tell us more about your item! This will help you gain attraction to your product.</textarea>
                         </div>
                     </div>
+                    <div class="col-md-4 col-sm-4">
+                        <label>Item Value</label>
+                        <div>
+                            <div style="display: inline-block">
+                                <div class="form-group">
+                                    <select class="form-control" style="width: 170px" required>
+                                        <option>Salect range from</option>
+                                        <option>100</option>
+                                        <option>500</option>
+                                        <option>5,000</option>
+                                        <option>10,000</option>
+                                        <option>Above</option>
+                                    </select>
+                                </div>
+                            </div>
+                            &nbsp;
 
-                    <div class="">
-                        <div style="display: inline-block">
-                            <div class="form-group">
-                                <select class="form-control" style="width: 170px">
-                                    <option>Select Gategory</option>
-                                    <option>Shoes</option>
-                                    <option>Clothes</option>
-                                    <option>Cars</option>
-                                    <option>Collectibles</option>
-                                    <option>Kahit ano</option>
-                                </select>
+                            <div style="display: inline-block">
+                                <div class="form-group">
+                                    <select class="form-control" style="width: 170px">
+                                        <option>Select range to</option>
+                                        <option>100</option>
+                                        <option>500</option>
+                                        <option>5,000</option>
+                                        <option>10,000</option>
+                                        <option>Above</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        &nbsp;
 
-                        <div style="display: inline-block">
-                            <div class="form-group">
-                                <select class="form-control" style="width: 170px">
-                                    <option>Select Condition</option>
-                                    <option>New</option>
-                                    <option>USed</option>
-                                </select>
+                        <div class="">
+                            <div style="display: inline-block">
+                                <div class="form-group">
+                                    <select class="form-control" style="width: 170px">
+                                        <option>Select Gategory</option>
+                                        <option>Shoes</option>
+                                        <option>Clothes</option>
+                                        <option>Cars</option>
+                                        <option>Collectibles</option>
+                                        <option>Kahit ano</option>
+                                    </select>
+                                </div>
+                            </div>
+                            &nbsp;
+
+                            <div style="display: inline-block">
+                                <div class="form-group">
+                                    <select class="form-control" style="width: 170px">
+                                        <option>Select Condition</option>
+                                        <option>New</option>
+                                        <option>USed</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <label for="uploadImage">Upload Image</label>
-                    <input type="file" id="uploadImage">
-                    <br/>
-                    <button type="submit" class="btn btn-success"> Submit</button>
+                        <label for="uploadImage">Upload Image</label>
+                        <input type="file" id="uploadImage">
+                        <br/>
+                        <button type="submit" class="btn btn-success"> Submit</button>
                     <br/>
                     <br/>
                 </form>
             </div>
         </div>
     </div>
-</div>x
-
+</div>
 
