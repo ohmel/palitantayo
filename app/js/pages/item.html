@@ -40,14 +40,14 @@
                         </p>
                     </div>
                 </div>
-                <div class="row" ng-if="$rootScope.user.userId != profile.userId">
+                <div class="row" ng-if="user.userId != profile.user_id && user.isGuest == false">
                     <div class="col-md-12 text-center">
                         <button ng-hide="following == true" type="button" class="btn btn-block btn-default btn-sm" ng-click="follow()" style="background: #2C363F"><i class="fa fa-check"></i> Follow</button>
                         <button ng-show="following == true" type="button" class="btn btn-block btn-default btn-sm" ng-click="unFollow()" style="background: #2C363F"><i class="fa fa-remove"></i> Unfollow</button>
                         <button type="button" class="btn btn-block btn-info btn-sm"><i class="fa fa-envelope"></i> Message</button>
                     </div>
                 </div>
-                <div class="row" ng-if="$rootScope.user.userId == profile.userId">
+                <div class="row" ng-if="user.userId == profile.user_id && user.isGuest == false">
                     <div class="col-md-12 text-center">
                         <button type="button" class="btn btn-block btn-success btn-sm" ng-click="editProfile()"><i class="fa fa-edit"></i> Edit Profile</button>
                     </div>
@@ -179,7 +179,7 @@
                     </div>
                 </div>
                 <br>
-                <div class="row">
+                <div class="row" ng-if="user.isGuest == false">
                     <div class="col-md-12">
                         <div class="form-group">
                             <textarea class="form-control" rows="3" ng-model="commentMessage"></textarea>

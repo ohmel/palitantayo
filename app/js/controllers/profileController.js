@@ -66,14 +66,19 @@ ptApp.controller('profileController', function ($rootScope, $location, $scope, G
         itemService.getUserItems(
             function (success) {
                 $scope.items = success.data;
-                profileService.checkIfFollowing(
-                    function (success) {
-                        $scope.following = success.data;
-                        $scope.pageLoaded = true;
-                    }, function (error) {
-                        ngNotify.set(error.message, 'error')
-                    }, $scope.route.userId, $rootScope.user.userId
-                )
+                if($rootScope.user.isGuest == false){
+                    profileService.checkIfFollowing(
+                        function (success) {
+                            $scope.following = success.data;
+                            $scope.pageLoaded = true;
+                        }, function (error) {
+                            ngNotify.set(error.message, 'error')
+                        }, $scope.route.userId, $rootScope.user.userId
+                    )
+                }else{
+                    $scope.pageLoaded = true;
+                }
+
             }, function (error) {
                 $location.path("/error/" + error.data.errorCode);
             }, $scope.route.userId);

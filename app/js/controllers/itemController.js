@@ -87,16 +87,21 @@ ptApp.controller('itemController', function ($rootScope, $scope, Globals, itemSe
             profileService.getProfile(
                 function (success) {
                     $scope.profile = success.data;
-                    var followerId = $rootScope.user.userId;
-                    var followedId = $scope.profile.user_id;
-                    profileService.checkIfFollowing(
-                        function (success) {
-                            $scope.following = success.data;
-                            $scope.pageLoaded = true;
-                        }, function (error) {
-                            ngNotify.set(error.message, 'error')
-                        }, followedId, followerId
-                    )
+                    if($rootScope.user.isGuest == false){
+                        var followerId = $rootScope.user.userId;
+                        var followedId = $scope.profile.user_id;
+                        profileService.checkIfFollowing(
+                            function (success) {
+                                $scope.following = success.data;
+                                $scope.pageLoaded = true;
+                            }, function (error) {
+                                ngNotify.set(error.message, 'error')
+                            }, followedId, followerId
+                        )
+                    }else{
+                        $scope.pageLoaded = true;
+                    }
+
 
                 }, function (error) {
                     ngNotify.set(error.message, 'error')
