@@ -35,9 +35,20 @@ ptApp.service('profileService', function ($http, Globals) {
         }).success(callback).error(errback);
     };
 
+    var register = function(callback, errback, registerForm){
+        $http({
+            method: 'POST',
+            url: url + 'profile/register',
+            data: {
+                registerForm: registerForm
+            }
+        }).success(callback).error(errback);
+    };
+
     return {
         getProfile: getProfile,
         checkIfFollowing: checkIfFollowing,
+        register: register,
         follow: follow,
     };
 });
