@@ -36,7 +36,7 @@
                 <div role="form" style="padding: 20px; width: 100%">
                     <div class="form-group" >
                         <input type="text" name="firstName" class="form-control" placeholder="First Name"
-                               ng-model="main.firstName"
+                               ng-model="registerForm.profile_fname"
                                required>
                         <!-- ngMessages goes here -->
                         <div class="help-block" ng-messages="userForm.firstName.$error" ng-if="userForm.firstName.$touched" style="color: red">
@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group" >
                         <input type="text" name="lastName" class="form-control" placeholder="Last Name"
-                               ng-model="main.lastName"
+                               ng-model="registerForm.profile_lname"
                                required>
                         <!-- ngMessages goes here -->
                         <div class="help-block" ng-messages="userForm.lastName.$error" ng-if="userForm.lastName.$touched" style="color: red">
@@ -54,7 +54,7 @@
                     </div>
                     <div class="form-group" >
                         <input type="text" name="userName" class="form-control" placeholder="Username"
-                               ng-model="main.userName"
+                               ng-model="registerForm.user_name"
                                ng-minlength="5"
                                ng-maxlength="15"
                                required>
@@ -68,17 +68,21 @@
                     </div>
                     <div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="" name="" placeholder="Password"/>
+                            <input type="password" class="form-control" ng-model="registerForm.user_password" name="password" placeholder="Password"/>
                         </div>
                     </div>
                     <div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="" name="" placeholder="Re-type Password"/>
+                            <input type="password" class="form-control" id="" ng-model="retypePassword" name="rpassword" placeholder="Re-type Password"/>
+                            <div class="help-block" ng-show="registerForm.user_password != retypePassword && userForm.password.$touched == true && userForm.rpassword.$touched == true">
+                                <p style="font-size: 14px; color: red" >Password did not match!</p>
+                            </div>
                         </div>
+
                     </div>
                     <div class="form-group">
                         <input type="email" name="email" class="form-control" placeholder="Email Address"
-                               ng-model="main.email"
+                               ng-model="registerForm.profile_email"
                                ng-minlength="5"
                                ng-maxlength="20"
                                required>
@@ -90,7 +94,7 @@
                     </div>
                     <div style="width: 410px">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">Register</button>
+                            <button type="submit" ng-disabled="userForm.userName.$valid == false || userForm.firstName.$valid == false || userForm.lastName.$valid == false || userForm.email.$valid == false || registerForm.user_password != retypePassword || userForm.password.$valid == false" class="btn btn-success">Register</button>
                         </div>
                     </div>
                 </div>

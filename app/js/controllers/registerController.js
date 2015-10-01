@@ -4,7 +4,8 @@
 ptApp.controller('registerController', function ($scope, Globals, itemService, profileService, $route, ngNotify) {
     $scope.itemService = itemService;
     $scope.globals=Globals;
-    $scope.registerForm = {};
+    $scope.registerForm = {
+    };
 
     $scope.register = function(registerForm){
         profileService.register(
