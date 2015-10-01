@@ -18,57 +18,79 @@
     </div>
     <br/>
 <div class="container">
-    <div class="row" style="border: 1px solid #E5E5E5;">
-        <div class="col-sm-7 col-md-7">
-            <div class="text-center" style="border-top: 1px solid #e5e5e5">
+    <div class="row">
+        <div class="col-sm-8 col-md-8">
+            <div class="text-center">
                 <br/>
                 <h4>Know us more</h4>
                 <img src="{{globals.rootUrl}}app/images/videothumb.jpg">
             </div>
         </div>
-        <div class="col-sm-5 col-md-5 col-md-offset-0 col-sm-offset-0" style="background: white">
+        <div class="col-sm-4 col-md-4 col-md-offset-0 col-sm-offset-0" style="background: white">
             <br/>
-            <h4>
+            <h4 style="text-align: center">
                 Register Here!
             </h4>
 
-            <form>
-                <div style="border: 3px; padding: 20px">
-                    <div style="display: inline-block !important;">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="" name="" placeholder="First Name"/>
+            <form name="userForm" novalidate>
+                <div role="form" style="padding: 20px; width: 100%">
+                    <div class="form-group" >
+                        <input type="text" name="firstName" class="form-control" placeholder="First Name"
+                               ng-model="main.firstName"
+                               required>
+                        <!-- ngMessages goes here -->
+                        <div class="help-block" ng-messages="userForm.firstName.$error" ng-if="userForm.firstName.$touched" style="color: red">
+                            <p ng-message="required" style="font-size: 14px">Your First Name is required.</p>
                         </div>
                     </div>
-                    &nbsp;&nbsp;
-                    <div style="display: inline-block !important;">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="" name="" placeholder="Last Name"/>
+                    <div class="form-group" >
+                        <input type="text" name="lastName" class="form-control" placeholder="Last Name"
+                               ng-model="main.lastName"
+                               required>
+                        <!-- ngMessages goes here -->
+                        <div class="help-block" ng-messages="userForm.lastName.$error" ng-if="userForm.lastName.$touched" style="color: red">
+                            <p ng-message="required" style="font-size: 14px">Your Last Name is required.</p>
+                        </div>
+                    </div>
+                    <div class="form-group" >
+                        <input type="text" name="userName" class="form-control" placeholder="Username"
+                               ng-model="main.userName"
+                               ng-minlength="5"
+                               ng-maxlength="15"
+                               required>
+
+                        <!-- ngMessages goes here -->
+                        <div class="help-block" ng-messages="userForm.userName.$error" ng-if="userForm.userName.$touched" style="color: red">
+                            <p ng-message="minlength" style="font-size: 14px">Your Username is too short.</p>
+                            <p ng-message="maxlength" style="font-size: 14px">Your Username is too long.</p>
+                            <p ng-message="required" style="font-size: 14px">Your Username is required.</p>
                         </div>
                     </div>
                     <div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="" name="" placeholder="User Name"/>
-                        </div>
-                    </div>
-                    <div style="display: inline-block !important;">
                         <div class="form-group">
                             <input type="password" class="form-control" id="" name="" placeholder="Password"/>
                         </div>
                     </div>
-                    &nbsp;&nbsp;
-                    <div style="display: inline-block !important;">
+                    <div>
                         <div class="form-group">
                             <input type="password" class="form-control" id="" name="" placeholder="Re-type Password"/>
                         </div>
                     </div>
-                    <div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email Address">
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="Email Address"
+                               ng-model="main.email"
+                               ng-minlength="5"
+                               ng-maxlength="20"
+                               required>
+                        <!-- ngMessages goes here -->
+                        <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched" style="color: #ff0000">
+                            <p ng-message="required" style="font-size: 14px">This field is required</p>
+                            <p ng-message="email" style="font-size: 14px">This needs to be a valid email</p>
                         </div>
                     </div>
                     <div style="width: 410px">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-default">Register</button>
+                            <button type="submit" class="btn btn-success">Register</button>
                         </div>
                     </div>
                 </div>
