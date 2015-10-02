@@ -10,7 +10,11 @@ ptApp.controller('registerController', function ($scope, Globals, itemService, p
     $scope.register = function(registerForm){
         profileService.register(
             function(success){
-                ngNotify.set('REgistration successful', 'success');
+                if(success.data == true){
+                    $location.path("/" + error.data.errorCode);
+                    ngNotify.set('Registration successful', 'success');
+                }
+
             }, function(error){
                 ngNotify.set('There was an error on your registration', 'error');
             }, registerForm

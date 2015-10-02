@@ -94,7 +94,7 @@
                     </div>
                     <div style="width: 410px">
                         <div class="form-group">
-                            <button type="submit" ng-disabled="userForm.userName.$valid == false || userForm.firstName.$valid == false || userForm.lastName.$valid == false || userForm.email.$valid == false || registerForm.user_password != retypePassword || userForm.password.$valid == false" class="btn btn-success">Register</button>
+                            <button type="submit" ng-click="register(registerForm)" ng-disabled="userForm.userName.$valid == false || userForm.firstName.$valid == false || userForm.lastName.$valid == false || userForm.email.$valid == false || registerForm.user_password != retypePassword || userForm.password.$valid == false" class="btn btn-success">Register</button>
                         </div>
                     </div>
                 </div>

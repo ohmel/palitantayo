@@ -41,14 +41,14 @@
                     </div>
                 </div>
                 <div ng-if="user.isGuest == false">
-                    <div class="row" ng-if="user.userId != profile.user_id">
+                    <div class="row" ng-if="user.userId != profile.user_id && user.isGuest == false">
                         <div class="col-md-12 text-center">
                             <button ng-hide="following == true" type="button" class="btn btn-block btn-default btn-sm" ng-click="follow()" style="background: #2C363F"><i class="fa fa-check"></i> Follow</button>
                             <button ng-show="following == true" type="button" class="btn btn-block btn-default btn-sm" ng-click="unFollow()" style="background: #2C363F"><i class="fa fa-remove"></i> Unfollow</button>
                             <button type="button" class="btn btn-block btn-info btn-sm"><i class="fa fa-envelope"></i> Message</button>
                         </div>
                     </div>
-                    <div class="row" ng-if="user.userId == profile.user_id">
+                    <div class="row" ng-if="user.userId == profile.user_id && user.isGuest == false">
                         <div class="col-md-12 text-center">
                             <button type="button" class="btn btn-block btn-success btn-sm" ng-click="editProfile()"><i class="fa fa-edit"></i> Edit Profile</button>
                         </div>
@@ -142,13 +142,20 @@
                         <h4>Comments</h4>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" ng-if="globals.isNothing(comments) != true">
                     <div class="col-md-12" ng-repeat="comment in comments">
                         <blockquote>
                             <div ng-bind-html="comment.comment.comment | to_trusted"></div>
                             <br>
-                            <footer><a style="display: inline;" href="#/profile/{{comment.comment.poster.user_id}}">{{comment.comment.poster.user_fullname}}</a> <br>&nbsp;&nbsp;<span style="font-size: 10px">{{comment.comment.date_posted}}</span></footer>
+                            <footer><a style="display: inline;" href="#/profile/{{comment.comment.poster.user_id}}">{{comment.comment.poster.user_fullname}}</a> <br>&nbsp;&nbsp;<span style="font-size: 10px">Date posted: {{comment.comment.date_posted}}</span></footer>
                         </blockquote>
+
+                    </div>
+
+                </div>
+                <div class="row" ng-if="globals.isNothing(comments) == true">
+                    <div class="col-md-12">
+                        <smal>No Comments yet...</smal>
                     </div>
                 </div>
                 <br>
