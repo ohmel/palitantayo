@@ -1,29 +1,50 @@
 /**
  * Created by Ohmel on 7/29/2015.
  */
-ptApp.controller('profileController', function ($location, $scope, Globals, $route, ngNotify, profileService, itemService, commentService) {
-    $scope.tooltipMessage = "Description Goes Here sdaf s sdf sdf sf saf sf sdf sdafsdafsdf asdfsda fsd adf sdf";
+ptApp.controller('profileController', function ($rootScope, $location, $scope, Globals, $route, ngNotify, profileService, itemService, commentService) {
     $scope.globals = Globals;
     $scope.route = $route.current.params;
     $scope.profileService = profileService;
     $scope.itemService = itemService;
-    //$scope.profile = {};
     $scope.comments = [];
-    $scope.commentMessage = "";
+    $scope.commentMo = "";
+    $scope.following = false;
+    $scope.pageLoaded = false;
 
-    $scope.editProfile = function () {
-        $location.path("/editProfile/" + $scope.route.userId);
-    }
 
-    $scope.postComment = function(commentMessage){
+
+    $scope.postComment = function (commentMessage) {
+        $scope.commentMo = commentMessage;
         commentService.postComment(
-            function(success){
-                $scope.comments.push(success.data);
-            }, function (error){
+            function (success) {
+                if (Globals.isNothing($scope.comments) === true) {
+                    commentService.getComments(
+                        function (success) {
+                            $scope.comments = success.data;
+                        }, function (error) {
+                            ngNotify.set(error.message, 'error')
+                        }, $scope.route.userId, 'user');
+                } else {
+                    $scope.comments.push(success.data);
+                }
+                $scope.commentMo = "";
+            }, function (error) {
                 ngNotify.set(error.message, 'error');
-            },$scope.commentMessage ,$scope.route.userId ,'user'
+            }, $scope.commentMo, $scope.route.userId, 'user'
         );
     }
+
+    $scope.follow = function () {
+        var followerId = $rootScope.user.userId;
+        var followedId = $scope.profile.user_id;
+        profileService.follow(
+            function (success) {
+                $scope.following = success.data;
+            }, function (error) {
+                ngNotify.set(error.message, 'error')
+            }, followedId, followerId
+        );
+    };
 
     commentService.getComments(
         function (success) {
@@ -45,10 +66,21 @@ ptApp.controller('profileController', function ($location, $scope, Globals, $rou
         itemService.getUserItems(
             function (success) {
                 $scope.items = success.data;
+                profileService.checkIfFollowing(
+                    function (success) {
+                        $scope.following = success.data;
+                        $scope.pageLoaded = true;
+                    }, function (error) {
+                        ngNotify.set(error.message, 'error')
+                    }, $scope.route.userId, $rootScope.user.userId
+                )
             }, function (error) {
                 $location.path("/error/" + error.data.errorCode);
             }, $scope.route.userId);
     }
+    $scope.editProfile = function () {
+        $location.path("/editProfile/" + $scope.route.userId);
+    };
 
 
-})
+});

@@ -19,13 +19,13 @@
     </div>
     <br>
     <div class="container-fluid">
-        <div class="row text-center" ng-hide="globals.isNothing(profile) == false">
+        <div class="row text-center" ng-hide="pageLoaded == true">
             <h1><i class="fa fa-spinner fa-spin"></i></h1>
             Please Wait
             <br>
             <br>
         </div>
-        <div class="row" ng-show="globals.isNothing(profile) == false">
+        <div class="row" ng-show="pageLoaded == true">
             <div class="col-md-3 hidden-sm">
                 <div style="padding-top: 20px" class="row">
                     <div class="col-md-3">
@@ -33,31 +33,39 @@
                              style="display: inline">
                     </div>
                     <div class="col-md-9" style="padding-top: 0px !important;">
-                        <b style="font-size: 18px">@DMoneyMaker</b>
+                        <b style="font-size: 18px">@{{profile.tag_name}}</b>
                         <p style="line-height: 20px">
                             {{profile.profile_fname}} {{profile.profile_lname}}  <br>
                             <small><i>{{profile.profile_location}}</i></small>
                         </p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <button ng-if="user.userId != route.userId" type="button" class="btn btn-block btn-default btn-sm" style="background: #2C363F"><i class="fa fa-check"></i> Appreciate</button>
-                        <button ng-if="user.userId != route.userId" type="button" class="btn btn-block btn-info btn-sm"><i class="fa fa-envelope"></i> Message</button>
-                        <button type="button" class="btn btn-block btn-success btn-sm" ng-click="editProfile()"><i class="fa fa-edit"></i> Edit Profile</button>
+                <div ng-if="user.isGuest == false">
+                    <div class="row" ng-if="user.userId != profile.user_id">
+                        <div class="col-md-12 text-center">
+                            <button ng-hide="following == true" type="button" class="btn btn-block btn-default btn-sm" ng-click="follow()" style="background: #2C363F"><i class="fa fa-check"></i> Follow</button>
+                            <button ng-show="following == true" type="button" class="btn btn-block btn-default btn-sm" ng-click="unFollow()" style="background: #2C363F"><i class="fa fa-remove"></i> Unfollow</button>
+                            <button type="button" class="btn btn-block btn-info btn-sm"><i class="fa fa-envelope"></i> Message</button>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="user.userId == profile.user_id">
+                        <div class="col-md-12 text-center">
+                            <button type="button" class="btn btn-block btn-success btn-sm" ng-click="editProfile()"><i class="fa fa-edit"></i> Edit Profile</button>
+                        </div>
                     </div>
                 </div>
+
                 <hr style="border-bottom: 2px solid #989898; margin-bottom: 0px">
                 <div class="row text-center">
                     <div class="col-sm-4">
-                        <h3><strong style="color: #BED735">160</strong></h3>
+                        <h3><strong style="color: #BED735">0</strong></h3>
                         <span>
                             <small>Appreciation</small>
                         </span>
                     </div>
                     <!--/col-->
                     <div class="col-sm-4">
-                        <h3><strong> 3 </strong></h3>
+                        <h3><strong> {{profile.followers}} </strong></h3>
                         <span>
                             <small>Followers</small>
                         </span>
@@ -65,7 +73,7 @@
 
                     <!--/col-->
                     <div class="col-sm-4">
-                        <h3><strong>43</strong></h3>
+                        <h3><strong>{{profile.following}}</strong></h3>
                         <span>
                             <small>Following</small>
                         </span>
@@ -106,7 +114,7 @@
                         <h3 style="color: #BED735">
                             <span ng-if="user.userId == route.userId">Your</span>
                             <span ng-if="user.userId != route.userId">{{profile.profile_fname}}'s</span>
-                            <span style="color: #56BEC1;">Gallery</span></h3>
+                            <span style="color: #56BEC1;">Items</span></h3>
                     </div>
                     <br/>
 
@@ -144,15 +152,15 @@
                     </div>
                 </div>
                 <br>
-                <div class="row">
+                <div class="row" ng-if="user.isGuest == false">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <textarea class="form-control" rows="3" ng-model="commentMessage"></textarea>
+                            <textarea class="form-control" rows="3" ng-model="commentMo"></textarea>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button class="btn btn-success btn-sm" ng-click="postComment(commentMessage)" ng-disabled="commentMessage == ''"><i class="fa fa-comment"></i> Reply Comment</button>
+                            <button class="btn btn-success btn-sm" ng-click="postComment(commentMo)" ng-disabled="commentMo == ''"><i class="fa fa-comment"></i> Reply Comment</button>
                             <button type="button" class="btn btn-success btn-sm"><i class="fa fa-file"></i> Send Proposal</button>
                         </div>
                     </div>

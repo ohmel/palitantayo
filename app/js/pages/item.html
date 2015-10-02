@@ -33,18 +33,23 @@
                              style="display: inline">
                     </div>
                     <div class="col-md-9" style="padding-top: 0px !important;">
-                        <b style="font-size: 18px">@DMoneyMaker</b>
+                        <b style="font-size: 18px">@{{profile.tag_name}}</b>
                         <p style="line-height: 20px">
                             {{profile.profile_fname}} {{profile.profile_lname}}  <br>
                             <small><i>{{profile.profile_location}}</i></small>
                         </p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" ng-if="$rootScope.user.userId != profile.userId">
                     <div class="col-md-12 text-center">
-                        <button ng-show="following == false" type="button" class="btn btn-block btn-default btn-sm" ng-click="follow()" style="background: #2C363F"><i class="fa fa-check"></i> Follow</button>
+                        <button ng-hide="following == true" type="button" class="btn btn-block btn-default btn-sm" ng-click="follow()" style="background: #2C363F"><i class="fa fa-check"></i> Follow</button>
                         <button ng-show="following == true" type="button" class="btn btn-block btn-default btn-sm" ng-click="unFollow()" style="background: #2C363F"><i class="fa fa-remove"></i> Unfollow</button>
                         <button type="button" class="btn btn-block btn-info btn-sm"><i class="fa fa-envelope"></i> Message</button>
+                    </div>
+                </div>
+                <div class="row" ng-if="$rootScope.user.userId == profile.userId">
+                    <div class="col-md-12 text-center">
+                        <button type="button" class="btn btn-block btn-success btn-sm" ng-click="editProfile()"><i class="fa fa-edit"></i> Edit Profile</button>
                     </div>
                 </div>
                 <hr style="border-bottom: 2px solid #989898; margin-bottom: 0px">
@@ -65,7 +70,7 @@
 
                     <!--/col-->
                     <div class="col-sm-4">
-                        <h3><strong>43</strong></h3>
+                        <h3><strong>{{profile.following}}</strong></h3>
                         <span>
                             <small>Following</small>
                         </span>
