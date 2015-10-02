@@ -1,57 +1,22 @@
 /**
  * Created by Ohmel on 7/29/2015.
  */
-ptApp.controller('itemController', function ($rootScope, $scope, Globals, itemService, $route, profileService, ngNotify, commentService) {
+ptApp.controller('itemController', function ($scope, Globals, itemService, $route, profileService, ngNotify, commentService) {
     $scope.testMessage = "asdfa asfsf asd fasdf adads sd";
     $scope.route = $route.current.params;
     $scope.globals = Globals;
     $scope.slides = [
-        {image: $scope.globals.rootUrl + 'app/images/items/1.jpg', description: 'Image 00'},
-        {image: $scope.globals.rootUrl + 'app/images/items/phone.jpeg', description: 'Image 01'},
-        {image: $scope.globals.rootUrl + 'app/images/items/laptop.png', description: 'Image 01'},
+        {image: $scope.globals.rootUrl+'app/images/items/1.jpg', description: 'Image 00'},
+        {image: $scope.globals.rootUrl+'app/images/items/phone.jpeg', description: 'Image 01'},
+        {image: $scope.globals.rootUrl+'app/images/items/laptop.png', description: 'Image 01'},
     ];
 
     $scope.item = {};
     $scope.profile = {};
     $scope.comments = [];
-    $scope.commentMessage = "";
 
     $scope.direction = 'left';
     $scope.currentIndex = 0;
-    $scope.following = false;
-    $scope.pageLoaded = false;
-
-    $scope.postComment = function (commentMessage) {
-        commentService.postComment(
-            function (success) {
-                if (Globals.isNothing($scope.comments) === true) {
-                    commentService.getComments(
-                        function (success) {
-                            $scope.comments = success.data;
-                        }, function (error) {
-                            ngNotify.set(error.message, 'error')
-                        }, $scope.route.itemId, 'item');
-                } else {
-                    $scope.comments.push(success.data);
-                }
-                $scope.commentMessage = "";
-            }, function (error) {
-                ngNotify.set(error.message, 'error');
-            }, $scope.commentMessage, $scope.route.itemId, 'item'
-        );
-    };
-
-    $scope.follow = function () {
-        var followerId = $rootScope.user.userId;
-        var followedId = $scope.profile.user_id;
-        profileService.follow(
-            function (success) {
-                $scope.following = success.data;
-            }, function (error) {
-                ngNotify.set(error.message, 'error')
-            }, followedId, followerId
-        );
-    }
 
     $scope.setCurrentSlideIndex = function (index) {
         $scope.direction = (index > $scope.currentIndex) ? 'left' : 'right';
@@ -72,7 +37,6 @@ ptApp.controller('itemController', function ($rootScope, $scope, Globals, itemSe
         $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
     };
 
-
     commentService.getComments(
         function (success) {
             $scope.comments = success.data;
@@ -87,19 +51,6 @@ ptApp.controller('itemController', function ($rootScope, $scope, Globals, itemSe
             profileService.getProfile(
                 function (success) {
                     $scope.profile = success.data;
-                    var followerId = $rootScope.user.userId;
-                    var followedId = $scope.profile.user_id;
-                    profileService.checkIfFollowing(
-                        function (success) {
-                            $scope.following = success.data
-                            if($scope.following == true){
-                                $scope.pageLoaded = true;
-                            }
-                        }, function (error) {
-                            ngNotify.set(error.message, 'error')
-                        }, followedId, followerId
-                    )
-
                 }, function (error) {
                     ngNotify.set(error.message, 'error')
                 }, $scope.item.user_id);
