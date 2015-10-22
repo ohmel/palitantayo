@@ -6,11 +6,8 @@ ptApp.controller('itemsController', function ($scope, Globals, itemService, prof
     $scope.globals = Globals;
     $scope.itemService = itemService;
     $scope.profileService = profileService;
-    $scope.slides = [
-        {image: $scope.globals.rootUrl+'app/images/featured/f1.gif', description: 'Image 00'},
-        {image: $scope.globals.rootUrl+'app/images/logo2.png', description: 'Image 01'},
-        {image: $scope.globals.rootUrl+'app/images/logo.jpg', description: 'Image 01'},
-    ];
+    $scope.featuredItem = {};
+    $scope.slides = [];
 
     $scope.items = [];
 
@@ -39,6 +36,19 @@ ptApp.controller('itemsController', function ($scope, Globals, itemService, prof
     itemService.itemList(
         function (success) {
             $scope.items = success.data;
+        }, function (error) {
+            //ngNotify.set(error.message, 'error');
+        }
+    );
+    itemService.featuredItem(
+        function (success) {
+            $scope.featuredItem = success.data;
+            itemService.getImages(
+                function(success){
+                    $scope.slides = success.data;
+                }, function(error){
+
+                }, $scope.featuredItem.item_id);
         }, function (error) {
             //ngNotify.set(error.message, 'error');
         }

@@ -24,11 +24,25 @@ ptApp.config(function($routeProvider) {
         })
         .when('/editProfile/:userId', {
             templateUrl : 'app/js/pages/editProfile.html',
-            controller  : 'editProfileController'
+            controller  : 'editProfileController',
+            access: {
+                requiresLogin: true,
+                isOwned: true
+            }
         })
         .when('/post', {
             templateUrl : 'app/js/pages/post.html',
-            controller  : 'postController'
+            controller  : 'postController',
+            //access: {
+            //    checkLogin: function(loginService){
+            //        var userData =  loginService.checkIfAuthorized();
+            //        console.log(userData);
+            //        return userData.isLoggedIn;
+            //    }
+            //
+            access: {
+                requiresLogin: true
+            }
         })
         .when('/register', {
             templateUrl : 'app/js/pages/register.html',

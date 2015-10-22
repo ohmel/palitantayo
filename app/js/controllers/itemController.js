@@ -4,11 +4,7 @@
 ptApp.controller('itemController', function ($rootScope, $scope, Globals, itemService, $route, profileService, ngNotify, commentService) {
     $scope.route = $route.current.params;
     $scope.globals = Globals;
-    $scope.slides = [
-        {image: $scope.globals.rootUrl + 'app/images/items/1.jpg', description: 'Image 00'},
-        {image: $scope.globals.rootUrl + 'app/images/items/phone.jpeg', description: 'Image 01'},
-        {image: $scope.globals.rootUrl + 'app/images/items/laptop.png', description: 'Image 01'},
-    ];
+    $scope.slides = [];
 
     $scope.item = {};
     $scope.profile = {};
@@ -80,6 +76,13 @@ ptApp.controller('itemController', function ($rootScope, $scope, Globals, itemSe
             ngNotify.set(error.message, 'error')
         }, $scope.route.itemId, 'item');
 
+
+    itemService.getImages(
+        function(success){
+            $scope.slides = success.data;
+        }, function(error){
+
+        }, $scope.route.itemId);
 
     itemService.item(
         function (success) {

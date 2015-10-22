@@ -49,7 +49,7 @@
                 </div>
                 <div class="row" ng-if="user.userId == profile.user_id && user.isGuest == false">
                     <div class="col-md-12 text-center">
-                        <button type="button" class="btn btn-block btn-success btn-sm" ng-click="editProfile()"><i class="fa fa-edit"></i> Edit Profile</button>
+                        <a type="button" class="btn btn-block btn-success btn-sm" href="/editProfile/{{profile.user_id}}" ><i class="fa fa-edit"></i> Edit Profile</a>
                     </div>
                 </div>
                 <hr style="border-bottom: 2px solid #989898; margin-bottom: 0px">
@@ -116,7 +116,7 @@
                     <div class="col-md-12 slider" style="height: 400px !important;">
                         <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage img-responsive"
                              ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
-                             ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}" width="600" style="">
+                             ng-hide="!isCurrentSlideIndex($index)" ng-src="{{globals.remoteRootUrl}}/uploads/{{route.itemId}}/{{slide.image}}" width="600" style="">
                         <nav class="nav2">
                             <div class="wrapper">
                                 <ul class="dots">

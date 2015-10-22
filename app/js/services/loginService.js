@@ -1,4 +1,4 @@
-ptApp.service('loginService', function ($http, Globals) {
+ptApp.service('loginService', function ($http, Globals, $q) {
 
     "use strict";
     var url = Globals.remoteRootUrl + "index.php/api/";
@@ -26,6 +26,17 @@ ptApp.service('loginService', function ($http, Globals) {
         }).success(callback).error(errback);
     };
 
+    var checkIfAuthorized = function(){
+        //var result = {}
+        $http({
+            method: 'GET',
+            url: url + 'site/checkLogin'
+        }).success(function(data){
+            return data;
+        });
+
+    };
+
     var logout = function(callback, errback){
         $http({
             method: 'GET',
@@ -37,6 +48,7 @@ ptApp.service('loginService', function ($http, Globals) {
     return {
         test: test,
         checkIfLoggedIn: checkIfLoggedIn,
+        checkIfAuthorized: checkIfAuthorized,
         logout: logout,
         login: login
     };

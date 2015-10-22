@@ -46,6 +46,8 @@ ptApp.controller('profileController', function ($rootScope, $location, $scope, G
         );
     };
 
+
+
     commentService.getComments(
         function (success) {
             $scope.comments = success.data;

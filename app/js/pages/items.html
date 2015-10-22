@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="app/css/items.css"/>
 
-
 <div class="container-fluid">
 
     <div class="row hidden-sm">
@@ -10,11 +9,16 @@
                 <h3 style="color: #BED735">Featured <span style="color: #56BEC1;">Today!</span></h3>
             </div>
         </div>
-
-        <div class="col-md-8 col-sm-12 slider">
+        <div class="row text-center" ng-hide="globals.isNothing(featuredItem) == false">
+            <h1><i class="fa fa-spinner fa-spin"></i></h1>
+            Please Wait
+            <br>
+            <br>
+        </div>
+        <div class="col-md-8 col-sm-12 slider" ng-show="globals.isNothing(featuredItem) == false">
             <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage img-responsive"
                  ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
-                 ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
+                 ng-hide="!isCurrentSlideIndex($index)" ng-src="{{globals.remoteRootUrl}}/uploads/{{featuredItem.item_id}}/{{slide.image}}">
             <nav class="nav2">
                 <div class="wrapper">
                     <ul class="dots">
@@ -26,29 +30,26 @@
                 </div>
             </nav>
         </div>
-        <div class="col-md-4 col-sm-12" style="font-size: 15px !important;">
+        <div class="col-md-4 col-sm-12" style="font-size: 15px !important;" ng-show="globals.isNothing(featuredItem) == false">
             <div style="padding-top: 20px" class="row">
                 <div class="col-md-2">
                     <img src="{{globals.rootUrl}}app/images/user-default.png" class="img-circle" width="70"
                          style="display: inline">
                 </div>
                 <div class="col-md-10">
-                    <b style="font-size: 18px">@DMoneyMaker</b><br>
+                    <b style="font-size: 18px">@{{featuredItem.user.tag_name}}</b><br>
 
-                    <p>Augustus Ceasar Amalejo</p>
+                    <p>{{featuredItem.user.profile_fname}} {{featuredItem.user.profile_lname}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <p style="border-top: 1px solid #E6E6E6; padding-top: 10px">
-                        <b>Oppo N7</b><br>
-                        Slim, Beautifully designed smart phone open to trade for the following items
-                    <ul>
-                        <li>Xiaomi 7</li>
-                        <li>Bass Guitar</li>
-                        <li>Vintage</li>
-                    </ul>
-                    Range Value: 5k - 10k
+                        <b>{{featuredItem.item_name}}</b><br>
+                        {{featuredItem.item_desc}}
+                        <br>
+                        <br>
+                    Range Value: {{featuredItem.item_trade_value}}
                     </p>
                 </div>
             </div>
@@ -69,24 +70,25 @@
     }
 </style>
 <div class="container-fluid">
-    <div class="row text-center" ng-hide="globals.isNothing(items) == false">
-        <h1><i class="fa fa-spinner fa-spin"></i></h1>
-        Please Wait
-        <br>
-        <br>
-    </div>
+
     <div class="row">
 
         <div class="page-header" style="padding-left: 20px; margin-bottom: 0px; padding-bottom: 0px; margin-top: 0px">
             <h3 style="color: #BED735">Browse Items <span style="color: #56BEC1;">Here!</span></h3>
         </div>
         <br/>
-
+        <br/>
+        <div class="row text-center" ng-hide="globals.isNothing(items) == false">
+            <h1><i class="fa fa-spinner fa-spin"></i></h1>
+            Please Wait
+            <br>
+            <br>
+        </div>
         <div class="col-md-3 col-sm-6" ng-repeat="item in items" style="padding-bottom: 20px !important;">
             <div class="thumbnail">
                 <div style="height: 250px; overflow-y: hidden; vertical-align: middle">
                     <a href="#item/{{item.item_id}}" class="">
-                        <img src="{{globals.rootUrl}}app/images/items/{{item.item_id}}.jpg" alt="..."/>
+                        <img src="{{globals.remoteRootUrl}}/uploads/{{item.item_id}}/{{item.item_pic}}" alt="..."/>
                     </a>
                 </div>
 

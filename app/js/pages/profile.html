@@ -51,6 +51,7 @@
                     <div class="row" ng-if="user.userId == profile.user_id && user.isGuest == false">
                         <div class="col-md-12 text-center">
                             <button type="button" class="btn btn-block btn-success btn-sm" ng-click="editProfile()"><i class="fa fa-edit"></i> Edit Profile</button>
+                            <a type="button" class="btn btn-block btn-warning btn-sm" href="#/post" ><i class="fa fa-edit"></i> Post Items</a>
                         </div>
                     </div>
                 </div>
@@ -122,7 +123,7 @@
                         <div class="thumbnail" style="height: 250px;">
                             <div style="height: 150px; overflow-y: hidden; vertical-align: middle">
                                 <a href="#item/{{item.item_id}}" class="">
-                                    <img src="{{globals.rootUrl}}app/images/items/{{item.item_id}}.jpg" alt="..."/>
+                                    <img src="{{globals.remoteRootUrl}}/uploads/{{item.item_id}}/{{item.item_pic}}" alt="..."/>
                                 </a>
                             </div>
 
