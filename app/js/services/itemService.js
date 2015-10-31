@@ -30,6 +30,17 @@ ptApp.service('itemService', function ($http, Globals) {
         }).success(callback).error(errback);
     }
 
+    var editItem = function (callback, errback, item, itemId){
+        $http({
+            method: 'PUT',
+            url: url + 'site/editItem',
+            data: {
+                itemId: itemId,
+                item: item
+            }
+        }).success(callback).error(errback);
+    }
+
     var item = function (callback, errback, itemId){
         $http({
             method: 'GET',
@@ -69,6 +80,7 @@ ptApp.service('itemService', function ($http, Globals) {
         getUserItems: getUserItems,
         featuredItem: featuredItem,
         postItem: postItem,
+        editItem: editItem,
         getImages: getImages,
         loadCategories: loadCategories,
         item: item

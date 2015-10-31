@@ -29,9 +29,6 @@ ptApp.run(['$rootScope', '$location', 'loginService', function ($rootScope, $loc
                 }
             }
         }
-        //if(next.access.isOwned == ){
-        //
-        //}
     })
 }])
 // create the controller and inject Angular's $scope

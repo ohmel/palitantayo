@@ -30,16 +30,17 @@ ptApp.config(function($routeProvider) {
                 isOwned: true
             }
         })
+        .when('/editPost/:itemId', {
+            templateUrl : 'app/js/pages/editPost.html',
+            controller  : 'editPostController',
+            //access: {
+            //    requiresLogin: true
+            //    //isOwned: true
+            //}
+        })
         .when('/post', {
             templateUrl : 'app/js/pages/post.html',
             controller  : 'postController',
-            //access: {
-            //    checkLogin: function(loginService){
-            //        var userData =  loginService.checkIfAuthorized();
-            //        console.log(userData);
-            //        return userData.isLoggedIn;
-            //    }
-            //
             access: {
                 requiresLogin: true
             }
